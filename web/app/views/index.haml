@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    -%w{zepto ICanHaz underscore}.each do |filename|
+      %script(type="text/javascript" src="scripts/#{filename}.js")
+
+    - Calatrava::Project.current.mobile_web.scripts.each do |filename|
+      %script(type="text/javascript" src="#{filename}")
+
+  %body
+    %div#app_container.container
+      - Calatrava::Project.current.mobile_web.haml_files.each do |hf|
+        = render_partial hf
+
+  :javascript
+    $(document).ready(function(){
+      example.converter.start();      
+    });
