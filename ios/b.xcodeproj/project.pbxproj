@@ -43,6 +43,8 @@
 		</dict>
 		<key>0F0C0F9CF1DA4B519BD24431</key>
 		<dict>
+			<key>baseConfigurationReference</key>
+			<string>B11C0F8BC711481787985F18</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ALWAYS_SEARCH_USER_PATHS</key>
@@ -128,6 +130,7 @@
 				<string>34E35CA6586C415D900F20BA</string>
 				<string>A2C2AB1A654540D9A2B5F1F5</string>
 				<string>D68A3253483C43FC992EC1B9</string>
+				<string>B11C0F8BC711481787985F18</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -277,6 +280,30 @@ bundle exec rake ios:xcode:prebuild</string>
 			<string>en.lproj</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>401308DF69AA460696D41D75</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>1</string>
 		</dict>
 		<key>407CDF675704406F9C39E0EF</key>
 		<dict>
@@ -428,11 +455,13 @@ bundle exec rake ios:xcode:prebuild</string>
 			<string>735F6F1DE26746D58DA512DB</string>
 			<key>buildPhases</key>
 			<array>
+				<string>F21125EE71B5496E9D0FD169</string>
 				<string>334CDB37BE82468BB2821108</string>
 				<string>2ADEBD6BADCD463083438621</string>
 				<string>87D2CA24C3BF4698ACB2207F</string>
 				<string>261D6A5AF2BE43BEA576DCBB</string>
 				<string></string>
+				<string>401308DF69AA460696D41D75</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -451,6 +480,8 @@ bundle exec rake ios:xcode:prebuild</string>
 		</dict>
 		<key>820E0BA6C8424C6292F1B10E</key>
 		<dict>
+			<key>baseConfigurationReference</key>
+			<string>B11C0F8BC711481787985F18</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ALWAYS_SEARCH_USER_PATHS</key>
@@ -510,6 +541,7 @@ bundle exec rake ios:xcode:prebuild</string>
 				<string>25A98C07342D4FD18153E2D5</string>
 				<string>75C4997DBD5749DC90DF6E5E</string>
 				<string>8C5AFE09E2AF46439C2321AC</string>
+				<string>AA23C9E387EA462DA499DFB0</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -539,6 +571,21 @@ bundle exec rake ios:xcode:prebuild</string>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
 			<dict/>
+		</dict>
+		<key>962592F49F6E4D6BB0C23703</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods.a</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>9FB6D075002D4FA989CB9A44</key>
 		<dict>
@@ -583,6 +630,15 @@ bundle exec rake ios:xcode:prebuild</string>
 			<key>sourceTree</key>
 			<string>SOURCE_ROOT</string>
 		</dict>
+		<key>AA23C9E387EA462DA499DFB0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>962592F49F6E4D6BB0C23703</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict/>
+		</dict>
 		<key>AC35723EDC5B4691A7C0F403</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -606,6 +662,21 @@ bundle exec rake ios:xcode:prebuild</string>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
 			<dict/>
+		</dict>
+		<key>B11C0F8BC711481787985F18</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
 		</dict>
 		<key>CB2EDB4CA47A435CB7F46A04</key>
 		<dict>
@@ -666,6 +737,7 @@ bundle exec rake ios:xcode:prebuild</string>
 				<string>48CCA44AF0F34C148505E9AD</string>
 				<string>71F3DE0B48044801883C5085</string>
 				<string>CB2EDB4CA47A435CB7F46A04</string>
+				<string>962592F49F6E4D6BB0C23703</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -673,6 +745,36 @@ bundle exec rake ios:xcode:prebuild</string>
 			<string>Frameworks</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>F21125EE71B5496E9D0FD169</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>1</string>
 		</dict>
 		<key>FE331BEAA0334325AF34B52D</key>
 		<dict>

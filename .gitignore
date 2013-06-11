@@ -1,0 +1,12 @@
+node_modules/
+.idea/
+artifacts/
+config/result/
+droid/b/ant/ivy-report.css
+droid/b/ant/com.example-currency-converter-default.graphml
+droid/b/ant/com.example-currency-converter-default.html
+droid/b/ivy/ivy.jar
+droid/b/libs/
+ios/Podfile.lock
+ios/Pods/
+ios/b.xcworkspace/
