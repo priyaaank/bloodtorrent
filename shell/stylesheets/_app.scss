@@ -1,0 +1,129 @@
+$header_blue: #004358;
+$header_border: #37C2F3;
+$notification_count_background: #1189C8;
+body{
+  .action-bar{
+    background-color: $header_blue;
+    border-top: 2px solid $header_border;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 640px;
+    margin: 0 auto;
+    .slider-menu{
+      background: url('/images/icons.png') no-repeat;
+      background-position: 3px 0px;
+      display: inline-block;
+      height: 100%;
+      width: 60px;
+      float: left;
+    }
+    .page-title{
+      height: 100%;
+      line-height: 50px;
+      display: inline-block;
+    }
+    .notifications{
+      float: right;
+      position: relative;
+      i{
+        background: url('/images/icons.png') no-repeat;
+        height: 50px;
+        width: 70px;
+        background-position: 0px -58px;
+        display: inline-block;
+      }
+      .notification-count{
+        position: absolute;
+        background: $notification_count_background;
+        height: 30px;
+        left: 15px;
+        right: 20px;
+        top: 55px;
+        line-height: 30px;
+        border-radius: 0px 0px 3px 3px;
+        &:before{
+          content: '';
+          position: absolute;
+          top: -15px;
+          border: solid green;
+          border-width: 0px 17px 15px 18px;
+          border-color: transparent transparent #58C3E3 transparent;
+          left: 0;
+        }
+      }
+    }
+  }
+  .page{
+    padding-top: 52px;
+    display: block !important;  //Added to show all pages for now. To be removed once we get the navigation working
+    &#all_requests {
+      .page-content{
+        .list-title{
+          height: 40px;
+          line-height: 40px;
+          color: #04FEFE;
+        }
+        ul.requests{
+          li.request{
+            padding: 10px;
+            border-top: 2px solid white;
+            &:last-child{
+              border-bottom: 2px solid white;
+            }
+            table{
+              width: 100%;
+              td.col-3{
+                display: inline-block;
+                width: 20%;
+                .notify-icon{
+                  max-width: 60px;
+                  background-color: #2D3D44;
+                  i.icon-notify{
+                    height: 50px;
+                    width: 60px;
+                    background: url("/images/icons.png");
+                    background-position: -3px -228px;
+                    display: inline-block;
+                  }
+                }
+              }
+              td.col-2{
+                display: inline-block;
+                width: 20%;
+                .location{
+                  width: 60px;
+                  i.icon-blip{
+                    height: 50px;
+                    width: 60px;
+                    background: url("/images/icons.png");
+                    background-position: 0px -115px;
+                    display: inline-block;
+                  }
+                }
+              }
+              td.col-1{
+                min-width: 200px;
+                display: inline-block;
+                width: 50%;
+                &.person-details{
+                  .name{
+                    font-size: 16px;
+                    font-weight: bold;
+                  }
+                  .address,
+                  .blood-details{
+                    font-size: 14px;
+                    color: grey;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
