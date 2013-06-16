@@ -1,6 +1,6 @@
 $white: #ffffff;
 $black: #000000;
-html{
+html {
   height: 100%;
   background: $black;
   body {
@@ -31,14 +31,42 @@ html{
     .center-aligned {
       margin: 0 auto !important;
     }
-    .clearfix{
-      &:after{
-        clear:both;
+    .float-left {
+      float: left;
+    }
+    .float-right {
+      float: right;
+    }
+    i {
+      height: 50px;
+      width: 60px;
+      display: inline-block;
+    }
+    .icon-blip {
+      background: url("/images/icons.png");
+      background-position: 0px -115px;
+    }
+    .icon-slider{
+      background: url('/images/icons.png') no-repeat;
+      background-position: 3px 0px;
+    }
+    .icon-notify {
+      background: url("/images/icons.png");
+      background-position: -3px -228px;
+    }
+    .icon-notification {
+      background: url('/images/icons.png') no-repeat;
+      width: 70px;
+      background-position: 0px -58px;
+    }
+    .clearfix {
+      &:after {
+        clear: both;
         content: " ";
         height: 0;
         display: block;
       }
-      &:before{
+      &:before {
         content: " ";
         clear: both;
         height: 0;
