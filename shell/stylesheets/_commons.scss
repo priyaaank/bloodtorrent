@@ -11,7 +11,6 @@ html {
     ul {
       padding: 0;
       margin: 0;
-      width: 100%;
       li {
         list-style: none;
       }
@@ -50,14 +49,29 @@ html {
       background: url('/images/icons.png') no-repeat;
       background-position: 3px 0px;
     }
-    .icon-notify {
-      background: url("/images/icons.png");
-      background-position: -3px -228px;
-    }
     .icon-notification {
       background: url('/images/icons.png') no-repeat;
-      width: 70px;
-      background-position: 0px -58px;
+      background-position: -2px -58px;
+    }
+    .icon-settings {
+      background: url('/images/icons.png') no-repeat;
+      background-position: 0px -170px;
+    }
+    .icon-new-request {
+      background: url('/images/icons.png') no-repeat;
+      background-position: -3px -225px;
+    }
+    .icon-menu-list {
+      background: url('/images/icons.png') no-repeat;
+      background-position: 0px -280px;
+    }
+    .icon-back {
+      background: url('/images/icons.png') no-repeat;
+      background-position: 0px -335px;
+    }
+    .icon-app {
+      background: url('/images/icons.png') no-repeat;
+      background-position: 0px -395px;
     }
     .clearfix {
       &:after {

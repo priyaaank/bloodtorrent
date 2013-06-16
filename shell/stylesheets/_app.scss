@@ -1,12 +1,48 @@
+$black: #000000;
 $header_blue: #004358;
 $header_border: #37C2F3;
 $notification_count_background: #1189C8;
 body {
   .drawer-menu {
+    border: 1px solid white;
+    position: absolute;
+    top: 2px;
+    bottom: 0;
+    background: #292929;
+    z-index: 10;
     .menu-head {
       background-color: $black;
       height: 50px;
       width: 240px;
+      a{
+        display: block;
+        .menu-title{
+          color: #CFCFCF;
+          height: 100%;
+          line-height: 50px;
+          display: inline-block;
+        }
+      }
+    }
+    ul.menu-body{
+      border-left: 1px solid white;
+      border-right: 1px solid white;
+      li{
+        border-top: 2px solid;
+        padding: 5px;
+        &:last-child{
+          border-bottom: 2px solid;
+        }
+        a{
+          display: block;
+          .item-detail{
+            color: #29B5E5;
+            padding-left: 5px;
+            height: 50px;
+            line-height: 50px;
+          }
+        }
+      }
     }
   }
   .action-bar {
@@ -31,7 +67,7 @@ body {
         background: $notification_count_background;
         height: 30px;
         left: 15px;
-        right: 20px;
+        right: 10px;
         top: 55px;
         line-height: 30px;
         border-radius: 0px 0px 3px 3px;
