@@ -10,3 +10,13 @@ droid/b/libs/
 ios/Podfile.lock
 ios/Pods/
 ios/b.xcworkspace/
+
+.rake
+.sass-cache/
+web/apache/logs/
+web/apache/public
+web/public/**
+web/apache/conf/httpd.conf
+
+**.patch
+**.psd
