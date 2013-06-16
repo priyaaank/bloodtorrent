@@ -12,9 +12,22 @@
       %script(type="text/javascript" src="#{filename}")
 
   %body
+    
     %div#app_container.container
+      %div.action-bar.clearfix.text-center
+        %span.slider-menu
+          %i.icon-slider
+        %h2.page-title
+          All Requests
+        %span.notifications
+          %i.icon-notification
+          %span.notification-count.text-center
+            3
+
       - Calatrava::Project.current.mobile_web.haml_files.each do |hf|
         = render_partial hf
+
+
 
   :javascript
     $(document).ready(function(){
