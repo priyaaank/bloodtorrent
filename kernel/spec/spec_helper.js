@@ -12,7 +12,7 @@ _ = underscore;
 
 stubView = require('stubView.coffee').stubView;
 
-tw = require('environment.spec_helper').tw;
+calatrava = require('environment.spec_helper').calatrava;
 
 function recursiveExtend(moduleToExtend, module) {
   _.each(module, function (value, key) {
@@ -25,13 +25,15 @@ function recursiveExtend(moduleToExtend, module) {
   });
 }
 
-example = {};
-recursiveExtend(example, require('controller.converter').example);
+bloodtorrent = {};
+//recursiveExtend(example, require('controller.converter').example);
+recursiveExtend(bloodtorrent, require('controller.listing').bloodtorrent);
+recursiveExtend(bloodtorrent, require('repository.listing').bloodtorrent);
 
 exports.stubView = stubView;
-exports.tw = tw;
+exports.calatrava = calatrava;
 exports.appDir = __dirname + "/../app";
-exports.example = example;
+exports.bloodtorrent = bloodtorrent;
 
 // Custom matchers:
 beforeEach(function() {
