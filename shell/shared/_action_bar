@@ -1,0 +1,9 @@
+%div.action-bar.clearfix.text-center
+  %span.slider-menu
+    %i.icon-slider
+  %h2.page-title
+    All Requests
+  %span.notifications
+    %i.icon-notification
+    %span.notification-count.text-center
+      3

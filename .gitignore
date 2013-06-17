@@ -17,3 +17,5 @@ web/apache/logs/
 web/apache/public/
 web/public/
 web/apache/conf/httpd.conf
+**.patch
+**.psd

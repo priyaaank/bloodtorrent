@@ -1,0 +1,91 @@
+$white: #ffffff;
+$black: #000000;
+html {
+  height: 100%;
+  background: $black;
+  body {
+    color: $white;
+    margin: auto auto;
+    padding: 0;
+    max-width: 640px;
+    ul {
+      padding: 0;
+      margin: 0;
+      li {
+        list-style: none;
+      }
+    }
+    .hidden {
+      display: none !important;
+    }
+    .text-center {
+      text-align: center !important;
+    }
+    .text-left {
+      text-align: left !important;
+    }
+    .text-right {
+      text-align: right !important;
+    }
+    .center-aligned {
+      margin: 0 auto !important;
+    }
+    .float-left {
+      float: left;
+    }
+    .float-right {
+      float: right;
+    }
+    i {
+      height: 50px;
+      width: 60px;
+      display: inline-block;
+    }
+    .icon-blip {
+      background: url("/images/icons.png");
+      background-position: 0px -115px;
+    }
+    .icon-slider{
+      background: url('/images/icons.png') no-repeat;
+      background-position: 3px 0px;
+    }
+    .icon-notification {
+      background: url('/images/icons.png') no-repeat;
+      background-position: -2px -58px;
+    }
+    .icon-settings {
+      background: url('/images/icons.png') no-repeat;
+      background-position: 0px -170px;
+    }
+    .icon-new-request {
+      background: url('/images/icons.png') no-repeat;
+      background-position: -3px -225px;
+    }
+    .icon-menu-list {
+      background: url('/images/icons.png') no-repeat;
+      background-position: 0px -280px;
+    }
+    .icon-back {
+      background: url('/images/icons.png') no-repeat;
+      background-position: 0px -335px;
+    }
+    .icon-app {
+      background: url('/images/icons.png') no-repeat;
+      background-position: 0px -395px;
+    }
+    .clearfix {
+      &:after {
+        clear: both;
+        content: " ";
+        height: 0;
+        display: block;
+      }
+      &:before {
+        content: " ";
+        clear: both;
+        height: 0;
+        display: block;
+      }
+    }
+  }
+}
