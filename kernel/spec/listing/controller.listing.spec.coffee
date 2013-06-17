@@ -4,20 +4,43 @@ example = exports.bloodtorrent
 stubView = exports.stubView
 
 describe 'listing controller', ->
-  ajax = null
-  changePage = null
+
   views = null
+  repositories = null
 
   beforeEach ->
-    ajax = jasmine.createSpy("ajax requester")
-    changePage = jasmine.createSpy('page changer').andCallFake (targetPage) ->
-      if views[targetPage].boundEvents['pageOpened']?
-        views[targetPage].trigger 'pageOpened'
     views =
-      listingPage: stubView.create('listingPage')
+      listingPage:
+        render: jasmine.createSpy('listingPageRender')
+    repositories =
+      donationsRepository:
+        requestDonations: jasmine.createSpy('requestDonations')
 
     subject = bloodtorrent.listing.controller
-      changePage: changePage
       views: views
-      ajax: ajax
+      repositories: repositories
+
+  describe "when donation listing call is successful", ->
+
+    beforeEach ()->
+      @donationRequestResponse = [
+        blood_group: "A+"
+        cordinates: [12.12,11.11]
+        units: 12
+        requestor: "Adam"
+        contact_details: ["adam@twitter", "9911223344"]
+        request_date: ""
+      ,
+        blood_group: "AB+"
+        cordinates: [10.12,-12.11],
+        units: 10,
+        requestor: "Cassy",
+        contact_details: ["cassy@gmail", "9274526262"]
+      ]
+
+      repositories.donationsRepository.requestDonations.mostRecentCall.args[0].successCallback(@donationRequestResponse)
+
+    it "should call render for listing page", ->
+      expect(views.listingPage.render).toHaveBeenCalledWith(donations: @donationRequestResponse)
+
 

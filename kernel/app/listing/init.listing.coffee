@@ -4,10 +4,9 @@ bloodtorrent.listing ?= {}
 bloodtorrent.listing.start = ->
   bloodtorrent.listing.controller
     views:
-      listingPage: calatrava.bridge.pages.pageNamed "listingPage"
+      listingPage: calatrava.bridge.pages.pageNamed "listing"
     repositories:
-      donationListing: bloodtorrent.listing.repository(ajax: calatrava.bridge.request)
+      donationsRepository: bloodtorrent.listing.repository(ajax: calatrava.bridge.request)
     changePage: calatrava.bridge.changePage
-    ajax: calatrava.bridge.request
 
-  calatrava.bridge.changePage "listingPage"
+  calatrava.bridge.changePage "listing"

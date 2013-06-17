@@ -11,6 +11,6 @@ bloodtorrent.listing.repository = ({ajax}) ->
       body: {blood_group:options.blood_group, latitude:options.location.latitude, longitude: options.location.longitude, radius: options.radius}
       contentType: "application/json"
       success: (responseData) =>
-        options.loginSuccessCallback JSON.parse(responseData)
+        options.successCallback JSON.parse(responseData)
       failure: (errorCode, errorMsg) =>
-        options.loginFailureCallback {"status" : "Error", errorMessage : errorMsg }
+        options.failureCallback {"status" : "Error", errorMessage : errorMsg }

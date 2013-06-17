@@ -22,8 +22,8 @@ describe "listing repository", ->
         latitude: 12.12
         longitude: -11.11
       blood_group: "A+"
-      loginSuccessCallback: onSuccess
-      loginFailureCallback: onFailure
+      successCallback: onSuccess
+      failureCallback: onFailure
 
   describe "request donation request listing", ->
 
