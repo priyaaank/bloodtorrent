@@ -19,3 +19,4 @@ web/public/
 web/apache/conf/httpd.conf
 **.patch
 **.psd
+.rvmrc
