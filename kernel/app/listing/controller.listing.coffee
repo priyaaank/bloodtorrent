@@ -19,9 +19,9 @@ bloodtorrent.listing.controller = ({views, repositories}) ->
       failureCallback: failureCallback
       bloodGroup: "opositive"
       location:
-        latitude: 73.8478
-        longitude: 18.5236
-      radius: 10
+        latitude: 18.5236
+        longitude: 73.8478
+      radius: 50
 
     repositories.donationsRepository.requestDonations(options)
 

@@ -5,8 +5,15 @@ calatrava.pageView.listing = ->
   $page = $('#listing')
   $p = (sel)-> $(sel, $page)
 
+  renderAllRequests = ($select, donationRequests) ->
+    $p("#loadingBanner").hide()
+    $select.empty().html ich.donationListingTmpl
+      donations: donationRequests
+
   renderSection = (key, data) ->
-    p("#" + key).val(data)
+    switch key
+      when 'donations' then renderAllRequests($p('#donationListing'), data)
+      else p("#" + key).val(data)
 
   bind: (event, handler) ->
     $p("#" + event).off('click').on 'click', handler
