@@ -4,11 +4,11 @@ bloodtorrent.listing ?= {}
 bloodtorrent.listing.repository = ({ajax}) ->
 
   requestDonations : (options) ->
-    url = "#{calatrava.bridge.environment().serviceEndpoint}/api/donations"
+    url = "#{calatrava.bridge.environment().serviceEndpoint}/api/donation/search"
+    queryString = "?blood_group=#{options.bloodGroup}&latitude=#{options.location.latitude}&longitude=#{options.location.longitude}&radius=#{options.radius}"
     ajax
-      url: url
+      url: url + queryString
       method: "GET"
-      body: {blood_group:options.blood_group, latitude:options.location.latitude, longitude: options.location.longitude, radius: options.radius}
       contentType: "application/json"
       success: (responseData) =>
         options.successCallback JSON.parse(responseData)

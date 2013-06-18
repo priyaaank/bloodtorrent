@@ -21,7 +21,7 @@ describe "listing repository", ->
       location:
         latitude: 12.12
         longitude: -11.11
-      blood_group: "A+"
+      bloodGroup: "apositive"
       successCallback: onSuccess
       failureCallback: onFailure
 
@@ -31,27 +31,28 @@ describe "listing repository", ->
       @subject.requestDonations data
 
       arguments = ajax.mostRecentCall.args[0]
+      matchingQueryString = "blood_group=apositive&latitude=12.12&longitude=-11.11&radius=12"
 
-      expect(arguments.url).toEqual("endpoint/donations")
+      expect(arguments.url).toEqual("endpoint/api/donation/search?#{matchingQueryString}")
       expect(arguments.method).toEqual("GET")
-      expect(arguments.body).toEqual({blood_group:"A+", latitude:12.12, longitude: -11.11, radius: 12})
       expect(arguments.contentType).toEqual("application/json")
 
     it "should return response data to the success callback when call is successful", ->
       @subject.requestDonations data
       success_reponse = [
-          blood_group: "A+"
+          _id: "51c046357e736a3b02000001"
+          blood_group: "apositive"
           cordinates: [12.12,11.11]
-          units: 12
+          quantity: 12
           requestor: "Adam"
-          contact_details: ["adam@twitter", "9911223344"]
-          request_date: ""
+          contact_details: "adam@twitter"
       ,
-          blood_group: "AB+"
+          _id: "51c046357e736a3b02000002"
+          blood_group: "apositive"
           cordinates: [10.12,-12.11],
-          units: 10,
+          quantity: 10,
           requestor: "Cassy",
-          contact_details: ["cassy@gmail", "9274526262"]
+          contact_details: "cassy@gmail"
       ]
 
       arguments = ajax.mostRecentCall.args[0]

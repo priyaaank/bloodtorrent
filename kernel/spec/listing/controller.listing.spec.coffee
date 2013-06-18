@@ -24,18 +24,19 @@ describe 'listing controller', ->
 
     beforeEach ()->
       @donationRequestResponse = [
-        blood_group: "A+"
+        _id: "51c046357e736a3b02000001"
+        blood_group: "apositive"
         cordinates: [12.12,11.11]
-        units: 12
+        quantity: 12
         requestor: "Adam"
-        contact_details: ["adam@twitter", "9911223344"]
-        request_date: ""
+        contact_details: "adam@twitter"
       ,
-        blood_group: "AB+"
+        _id: "51c046357e736a3b02000002"
+        blood_group: "apositive"
         cordinates: [10.12,-12.11],
-        units: 10,
+        quantity: 10,
         requestor: "Cassy",
-        contact_details: ["cassy@gmail", "9274526262"]
+        contact_details: "cassy@gmail"
       ]
 
       repositories.donationsRepository.requestDonations.mostRecentCall.args[0].successCallback(@donationRequestResponse)
