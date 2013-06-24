@@ -87,7 +87,7 @@ body {
     padding-top: 52px;
     display: block !important;
     //Added to show all pages for now. To be removed once we get the navigation working
-    &#all_requests {
+    &#listing {
       .page-content {
         .list-title {
           height: 40px;
@@ -123,7 +123,9 @@ body {
                 display: inline-block;
                 width: 50%;
                 &.person-details {
+                  text-transform: capitalize;
                   .name {
+                    line-height: 25px;
                     font-size: 16px;
                     font-weight: bold;
                   }
