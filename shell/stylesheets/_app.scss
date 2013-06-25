@@ -53,6 +53,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    min-width: 320px;
     max-width: 640px;
     margin: 0 auto;
     .page-title {
@@ -84,6 +85,7 @@ body {
     }
   }
   .page {
+    min-width: 320px;
     padding-top: 52px;
     display: block !important;
     //Added to show all pages for now. To be removed once we get the navigation working
@@ -105,7 +107,7 @@ body {
               width: 100%;
               td.col-3 {
                 display: inline-block;
-                width: 20%;
+                width: 25%;
                 .notify-icon {
                   max-width: 60px;
                   background-color: #2D3D44;
@@ -113,13 +115,12 @@ body {
               }
               td.col-2 {
                 display: inline-block;
-                width: 20%;
+                width: 25%;
                 .location {
                   width: 60px;
                 }
               }
               td.col-1 {
-                min-width: 200px;
                 display: inline-block;
                 width: 50%;
                 &.person-details {
