@@ -1,7 +1,7 @@
-%div#listing.page
-  %div.page-content
-    %h3.list-title.text-center
-      Blood Requests - B+
+%div#donationRequestListing.page
+  %div.action-bar.clearfix.text-center
+    %h2.page-title
+      All Requests
 
     %script#donationListingTmpl(type="text/html")
       {{#donations}}
@@ -21,18 +21,10 @@
                   ,
                 %span.blood-units
                   %strong {{quantity}} Units
-            %td.col-2.text-center.location-details
-              .location.center-aligned
-                %a{href: '#'}
-                  %i.icon-blip
-            %td.col-3.text-center.notificaion-details
-              .notify-icon.center-aligned
-                %a{href: '#'}
-                  %i.icon-notification
       {{/donations}}
 
-    %h4.list-title.text-center#loadingBanner
-      Loading Donation Requests
+  %h4.list-title.text-center#loadingBanner
+    Loading Donation Requests
 
-    %ul.requests
-      #donationListing
+  %ul.requests
+    #donationListing

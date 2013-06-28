@@ -14,53 +14,43 @@
   %body
 
     %div#app_container.container
-      %div.action-bar.clearfix.text-center
-        %a.slider-menu.float-left{href: '#'}
-          %i.icon-slider
-        %h2.page-title
-          All Requests
-        %span.notifications.float-right
-          %a{href: '#'}
-            %i.icon-notification
-            %span.notification-count.text-center
-              3
 
       - Calatrava::Project.current.mobile_web.haml_files.each do |hf|
         = render_partial hf
 
-    .drawer-menu.hidden
-      .menu-head
-        %a.clearfix{href: '#'}
-          %span.back.float-left
-            %i.icon-back
-          %h1.menu-title
-            Blood Torrent
-          %span.app-icon.float-right
-            %i.icon-app
-      %ul.menu-body
-        %li.menu-item
-          %a.clearfix{href: '#'}(id="menu_item_{{page}}" pageId="{{page}}")
-            %span.menu-all-requests.float-left
-              %i.icon-menu-list
-            %span.item-detail.float-left All Requests
-        %li.menu-item
-          %a.clearfix{href: '#'}(id="menu_item_{{page}}" pageId="{{page}}")
-            %span.menu-new-request.float-left
-              %i.icon-new-request
-            %span.item-detail.float-left Make a Request
-        %li.menu-item
-          %a.clearfix{href: '#'}(id="menu_item_{{page}}" pageId="{{page}}")
-            %span.menu-all-requests.float-left
-              %i.icon-settings
-            %span.item-detail.float-left My Settings
-        %li.menu-item
-          %a.clearfix{href: '#'}(id="menu_item_{{page}}" pageId="{{page}}")
-            %span.menu-notifications.float-left
-              %i.icon-notification
-            %span.item-detail.float-left Notifications
+    -#.drawer-menu.hidden
+    -#  .menu-head
+    -#    %a.clearfix{href: '#'}
+    -#      %span.back.float-left
+    -#        %i.icon-back
+    -#      %h1.menu-title
+    -#        Blood Torrent
+    -#      %span.app-icon.float-right
+    -#        %i.icon-app
+    -#  %ul.menu-body
+    -#    %li.menu-item
+    -#      %a.clearfix{href: '#'}(id="menu_item_{{page}}" pageId="{{page}}")
+    -#        %span.menu-all-requests.float-left
+    -#          %i.icon-menu-list
+    -#        %span.item-detail.float-left All Requests
+    -#    %li.menu-item
+    -#      %a.clearfix{href: '#'}(id="menu_item_{{page}}" pageId="{{page}}")
+    -#        %span.menu-new-request.float-left
+    -#          %i.icon-new-request
+    -#        %span.item-detail.float-left Make a Request
+    -#    %li.menu-item
+    -#      %a.clearfix{href: '#'}(id="menu_item_{{page}}" pageId="{{page}}")
+    -#        %span.menu-all-requests.float-left
+    -#          %i.icon-settings
+    -#        %span.item-detail.float-left My Settings
+    -#    %li.menu-item
+    -#      %a.clearfix{href: '#'}(id="menu_item_{{page}}" pageId="{{page}}")
+    -#        %span.menu-notifications.float-left
+    -#          %i.icon-notification
+    -#        %span.item-detail.float-left Notifications
 
 
   :javascript
     $(document).ready(function(){
-      bloodtorrent.listing.start();
+      bloodtorrent.donationRequest.start();
     });

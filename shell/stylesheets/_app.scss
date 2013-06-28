@@ -1,14 +1,40 @@
-$black: #000000;
-$header_blue: #004358;
-$header_border: #37C2F3;
-$notification_count_background: #1189C8;
+$black: #ecf0f1;
+$header_blue: #c0392b;
+$notification_count_background: #f1c40f;
+
+$header_border: #e74c3c;
+$pomegranate: #c0392b;
+$wet-asphalt: #34495e;
+$belize-hole: #2980b9;
+$plain-white: #FFFFFF;
+
+@font-face {
+  font-family: "Roboto Light";
+  src: url("../images/Roboto-Light.ttf");
+}
+
+@font-face {
+  font-family: "Roboto Thin";
+  src: url("../images/Roboto-Thin.ttf");
+}
+
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url("../images/Roboto-Condensed.ttf");
+}
+
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("../images/Roboto-Regular.ttf");
+}
+
 body {
   .drawer-menu {
     border: 1px solid white;
     position: absolute;
     top: 2px;
     bottom: 0;
-    background: #292929;
+    background: $plain-white;
     z-index: 10;
     .menu-head {
       background-color: $black;
@@ -17,7 +43,7 @@ body {
       a{
         display: block;
         .menu-title{
-          color: #CFCFCF;
+          color: $plain-white;
           height: 100%;
           line-height: 50px;
           display: inline-block;
@@ -45,97 +71,79 @@ body {
       }
     }
   }
-  .action-bar {
-    background-color: $header_blue;
-    border-top: 2px solid $header_border;
-    height: 50px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    min-width: 320px;
-    max-width: 640px;
-    margin: 0 auto;
-    .page-title {
-      height: 100%;
-      line-height: 50px;
-      display: inline-block;
-    }
-    .notifications {
-      position: relative;
-      .notification-count {
-        position: absolute;
-        background: $notification_count_background;
-        height: 30px;
-        left: 15px;
-        right: 10px;
-        top: 55px;
-        line-height: 30px;
-        border-radius: 0px 0px 3px 3px;
-        &:before {
-          content: '';
-          position: absolute;
-          top: -15px;
-          border: solid green;
-          border-width: 0px 17px 15px 18px;
-          border-color: transparent transparent #58C3E3 transparent;
-          left: 0;
-        }
-      }
-    }
-  }
+
   .page {
     min-width: 320px;
     padding-top: 52px;
     display: block !important;
+
+    .action-bar {
+      background-color: $pomegranate;
+      border-top: 2px solid $header_border;
+      height: 50px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      max-width: 640px;
+      margin: 0 auto;
+      .page-title {
+        height: 100%;
+        line-height: 50px;
+        display: inline-block;
+        font-family: "Roboto Light";
+        font-size: 25px;
+      }
+    }
+
     //Added to show all pages for now. To be removed once we get the navigation working
-    &#listing {
-      .page-content {
-        .list-title {
-          height: 40px;
-          line-height: 40px;
-          color: #04FEFE;
+//<<<<<<< HEAD
+//    &#listing {
+//      .page-content {
+//        .list-title {
+//          height: 40px;
+//          line-height: 40px;
+//          color: #04FEFE;
+//=======
+    ul.requests {
+      li.request {
+        margin-top: 5px;
+        background-color: $wet-asphalt;
+        min-height: 100px;
+        &:last-child {
+          border-bottom: 2px solid white;
+//>>>>>>> Modifying UI and also refactored code to be donationRequest instead of listing. Will add create page now
         }
-        ul.requests {
-          li.request {
-            padding: 10px;
-            border-top: 2px solid white;
-            &:last-child {
-              border-bottom: 2px solid white;
+        table {
+          width: 100%;
+          td.col-3 {
+            display: inline-block;
+            width: 20%;
+            .notify-icon {
+              max-width: 60px;
+              background-color: #2D3D44;
             }
-            table {
-              width: 100%;
-              td.col-3 {
-                display: inline-block;
-                width: 25%;
-                .notify-icon {
-                  max-width: 60px;
-                  background-color: #2D3D44;
-                }
+          }
+          td.col-2 {
+            display: inline-block;
+            width: 20%;
+            .location {
+              width: 60px;
+            }
+          }
+          td.col-1 {
+            min-width: 200px;
+            display: inline-block;
+            width: 50%;
+            &.person-details {
+              .name {
+                font-size: 16px;
+                font-weight: bold;
               }
-              td.col-2 {
-                display: inline-block;
-                width: 25%;
-                .location {
-                  width: 60px;
-                }
-              }
-              td.col-1 {
-                display: inline-block;
-                width: 50%;
-                &.person-details {
-                  text-transform: capitalize;
-                  .name {
-                    line-height: 25px;
-                    font-size: 16px;
-                    font-weight: bold;
-                  }
-                  .address,
-                  .blood-details {
-                    font-size: 14px;
-                    color: grey;
-                  }
-                }
+              .address,
+              .blood-details {
+                font-size: 14px;
+                color: grey;
               }
             }
           }

@@ -1,13 +1,13 @@
 bloodtorrent ?= {}
-bloodtorrent.listing ?= {}
+bloodtorrent.donationRequest ?= {}
 
-bloodtorrent.listing.controller = ({views, repositories}) ->
+bloodtorrent.donationRequest.controller = ({views, repositories}) ->
 
   initialize = () ->
     requestDonations()
 
   successCallback = (successResponse) ->
-    views.listingPage.render
+    views.donationRequestListingPage.render
       donations: successResponse
 
   failureCallback = (errorCode, errorResponse) ->

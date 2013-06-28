@@ -26,9 +26,8 @@ function recursiveExtend(moduleToExtend, module) {
 }
 
 bloodtorrent = {};
-//recursiveExtend(example, require('controller.converter').example);
-recursiveExtend(bloodtorrent, require('controller.listing').bloodtorrent);
-recursiveExtend(bloodtorrent, require('repository.listing').bloodtorrent);
+recursiveExtend(bloodtorrent, require('controller.donationRequest').bloodtorrent);
+recursiveExtend(bloodtorrent, require('repository.donationRequest').bloodtorrent);
 
 exports.stubView = stubView;
 exports.calatrava = calatrava;

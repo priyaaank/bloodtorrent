@@ -1,8 +1,8 @@
 calatrava.pageView ?= {}
 
-calatrava.pageView.listing = ->
+calatrava.pageView.donationRequestListing = ->
 
-  $page = $('#listing')
+  $page = $('#donationRequestListing')
   $p = (sel)-> $(sel, $page)
 
   renderAllRequests = ($select, donationRequests) ->

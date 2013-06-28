@@ -1,7 +1,7 @@
 exports = require 'spec_helper'
 bloodtorrent = exports.bloodtorrent
 
-describe "listing repository", ->
+describe "donation request repository", ->
 
   ajax = null
   onSuccess = null
@@ -14,7 +14,7 @@ describe "listing repository", ->
     onFailure = jasmine.createSpy "failure callback"
     spyOn(calatrava.bridge, 'environment').andReturn({serviceEndpoint: "endpoint"})
 
-    @subject = bloodtorrent.listing.repository({ajax})
+    @subject = bloodtorrent.donationRequest.repository({ajax})
 
     data =
       radius: 12

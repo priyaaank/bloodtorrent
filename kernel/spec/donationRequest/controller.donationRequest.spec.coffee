@@ -3,20 +3,20 @@ exports = require 'spec_helper'
 example = exports.bloodtorrent
 stubView = exports.stubView
 
-describe 'listing controller', ->
+describe 'donation request controller', ->
 
   views = null
   repositories = null
 
   beforeEach ->
     views =
-      listingPage:
+      donationRequestListingPage:
         render: jasmine.createSpy('listingPageRender')
     repositories =
       donationsRepository:
         requestDonations: jasmine.createSpy('requestDonations')
 
-    subject = bloodtorrent.listing.controller
+    subject = bloodtorrent.donationRequest.controller
       views: views
       repositories: repositories
 
@@ -42,6 +42,6 @@ describe 'listing controller', ->
       repositories.donationsRepository.requestDonations.mostRecentCall.args[0].successCallback(@donationRequestResponse)
 
     it "should call render for listing page", ->
-      expect(views.listingPage.render).toHaveBeenCalledWith(donations: @donationRequestResponse)
+      expect(views.donationRequestListingPage.render).toHaveBeenCalledWith(donations: @donationRequestResponse)
 
 

@@ -1,7 +1,7 @@
 bloodtorrent ?= {}
-bloodtorrent.listing ?= {}
+bloodtorrent.donationRequest ?= {}
 
-bloodtorrent.listing.repository = ({ajax}) ->
+bloodtorrent.donationRequest.repository = ({ajax}) ->
 
   requestDonations : (options) ->
     url = "#{calatrava.bridge.environment().serviceEndpoint}/api/donation/search"
