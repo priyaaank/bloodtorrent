@@ -1,0 +1,20 @@
+%div#newDonationRequest.page
+  %div.action-bar.clearfix.text-center
+    %h2.page-title
+      New Request
+
+  #newRequest
+    .field_label Blood Group
+    %input#bloodgroup.field_value{:type => "text", :name => "bloodgroup"}
+
+    .field_label Quantity
+    %input#quantity.field_value{:type => "text", :name => "quantity"}
+
+    .field_label Contact Details
+    %textarea#contact_details.multiline_string{:name => "contact_details"}
+
+    .field_label Location
+    %img#location.image_button{:src => "../images/place.png"}
+
+    %button#submitDonationRequest.submit_button{:name => "submitDonationRequest"}
+      Create
