@@ -29,8 +29,8 @@ bloodtorrent.donationRequest.controller = ({views, repositories}) ->
   bindCreateDonationView = () ->
     views.newDonationRequestPage.bind "submitDonationRequest", validateAndCreateDonationRequest
 
-  createNewRequest = () ->
-    calatrava.alert("created")
+  createNewRequest = (donationRequest) ->
+    repositories.donationsRepository.createDonation(donationRequest)
 
   renderErrors = (errors) ->
     calatrava.alert("errors")
@@ -44,6 +44,6 @@ bloodtorrent.donationRequest.controller = ({views, repositories}) ->
     views.newDonationRequestPage.get "contact_details", (contactDetailsFromView) -> contactDetails = contactDetailsFromView
     donationRequest = new bloodtorrent.models.donationRequest({bloodGroup, units, contactDetails})
     errors = donationRequest.errors unless donationRequest.isValid()
-    if _.isEmpty(errors) then createNewRequest() else renderErrors()
+    if _.isEmpty(errors) then createNewRequest(donationRequest) else renderErrors()
 
   initialize()

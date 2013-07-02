@@ -3,7 +3,7 @@ bloodtorrent.models ?= {}
 
 bloodtorrent.models.donationRequest = class DonationRequest
 
-  bloodGroups =
+  BLOOD_GROUPS =
     "A+": "apositive"
     "A-": "anegative"
     "O+": "opositive"
@@ -15,14 +15,18 @@ bloodtorrent.models.donationRequest = class DonationRequest
 
   integerRegex = /^\d+$/
 
-  constructor: ({@bloodGroup, @units, @location, @contactDetails}) ->
+  constructor: ({bloodGroup, units, location, contactDetails}) ->
+    @bloodGroup = BLOOD_GROUPS[bloodGroup.toUpperCase()] || "unknown"
+    @units = units
+    @location = location
+    @contactDetails = contactDetails
 
   isInteger = (value) ->
     integerRegex.test value
 
   isValid : () ->
     @errors = []
-    @errors.push("Invalid blood group") unless (_(bloodGroups).keys().indexOf(@bloodGroup.toUpperCase()) > -1)
+    @errors.push("Invalid blood group") if (@bloodGroup is "unknown")
     @errors.push("Units is not an integer") unless isInteger(@units)
     @errors.push("Contact details must be supplied") if _(@contactDetails).isEmpty()
     _.isEmpty(@errors)
