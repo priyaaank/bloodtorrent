@@ -4,8 +4,8 @@ bloodtorrent.donationRequest ?= {}
 bloodtorrent.donationRequest.controller = ({views, repositories}) ->
 
   initialize = () ->
-    bindCreateDonationView()
-#    requestDonations()
+#    bindCreateDonationView()
+    requestDonations()
 
   successCallback = (successResponse) ->
     views.donationRequestListingPage.render
