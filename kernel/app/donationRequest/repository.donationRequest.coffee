@@ -15,20 +15,21 @@ bloodtorrent.donationRequest.repository = ({ajax}) ->
       failure: (errorCode, errorMsg) =>
         options.failureCallback {"status" : "Error", errorMessage : errorMsg }
 
-  createDonation : (newDonation) ->
+  createDonation : (options) ->
     url = "#{calatrava.bridge.environment().serviceEndpoint}/api/donation/new"
     ajax
       url: url
       method: "POST"
       contentType: "application/json"
       body:
-        blood_group     : newDonation.bloodGroup
+        blood_group     : options.donationRequest.bloodGroup
         latitude        : "12.11"
         longitude       : "11.11"
-        quantity        : newDonation.units
+        quantity        : options.donationRequest.units
         requestor       : "unknown"
-        contact_details : newDonation.contactDetails
+        contact_details : options.donationRequest.contactDetails
       success: (responseData) =>
-        options.successCallback JSON.parse(responseData)
+        parsedResponse = if _(responseData).isEmpty() then "success" else JSON.parse(responseData)
+        options.onDonationCreateSuccess parsedResponse
       failure: (errorCode, errorMsg) =>
-        options.failureCallback {"status" : "Error", errorMessage : errorMsg }
+        options.onDonationCreateFailure {"status" : "Error", errorMessage : errorMsg }
