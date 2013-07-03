@@ -1,0 +1,11 @@
+%div#userSetup.page
+  %div.action-bar.clearfix.text-center
+    %h2.page-title
+      User Setup
+
+  #setupData
+    .field_label Name
+    %input#userName.field_value{:type => "text", :name => "userName"}
+
+    %button#submitUserData.submit_button{:name => "submitUserData"}
+      Save
