@@ -7,5 +7,20 @@
     .field_label Name
     %input#userName.field_value{:type => "text", :name => "userName"}
 
-    %button#submitUserData.submit_button{:name => "submitUserData"}
+    .field_label Blood Group
+    %select#userBloodGroup
+      %option{ :value => "choose"} Select
+      %option{ :value => "apositive"}A Positive
+      %option{ :value => "anegative"}A Negative
+      %option{ :value => "bpositive"}B Positive
+      %option{ :value => "bnegative"}B Negative
+      %option{ :value => "opositive"}O Positive
+      %option{ :value => "onegative"}O Negative
+      %option{ :value => "abpositive"}AB Positive
+      %option{ :value => "abnegative"}AB Negative
+
+    .field_label Notification Radius
+    %input#notificationRadius.field_value{:type => "text", :name => "notificationRadius"}
+
+    %button#saveUserPreferences.submit_button{:name => "saveUserPreferences"}
       Save
