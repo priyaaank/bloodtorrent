@@ -12,7 +12,7 @@
       %script(type="text/javascript" src="#{filename}")
 
   %body
-
+    = render_partial "shell/shared/action_bar.haml"
     %div#app_container.container
 
       - Calatrava::Project.current.mobile_web.haml_files.each do |hf|

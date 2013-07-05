@@ -1,32 +1,7 @@
-$black: #ecf0f1;
-$header_blue: #c0392b;
-$notification_count_background: #f1c40f;
-
-$header_border: #e74c3c;
-$pomegranate: #c0392b;
-$wet-asphalt: #34495e;
-$belize-hole: #2980b9;
-$plain-white: #FFFFFF;
-
-@font-face {
-  font-family: "Roboto Light";
-  src: url("../images/Roboto-Light.ttf");
-}
-
-@font-face {
-  font-family: "Roboto Thin";
-  src: url("../images/Roboto-Thin.ttf");
-}
-
-@font-face {
-  font-family: "Roboto Condensed";
-  src: url("../images/Roboto-Condensed.ttf");
-}
-
-@font-face {
-  font-family: "Roboto Regular";
-  src: url("../images/Roboto-Regular.ttf");
-}
+// fix the build task so that we can remove these dependencies in all _CSS.scss files.
+@import "variables";
+@import "mixins";
+@import "web_fonts";
 
 body {
   .drawer-menu {
@@ -75,55 +50,27 @@ body {
   .page {
     min-width: 320px;
     padding-top: 52px;
-    .action-bar {
-      background-color: $pomegranate;
-      border-top: 2px solid $header_border;
-      height: 50px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      max-width: 640px;
-      margin: 0 auto;
-      .page-title {
-        height: 100%;
-        line-height: 50px;
-        display: inline-block;
-        font-family: "Roboto Light";
-        font-size: 25px;
-      }
-    }
-    .field{
-      display: table;
-      padding: 10px;
-      margin: 0 auto;
-      .field-label{
-        display: table-cell;
-      }
-    }
-    .action{
-      padding: 15px;
-      text-align: center;
-      .submit-button{
-        width: 100%;
-        height: 40px;
-        font-size: 1em;
-      }
-    }
-    &#donationRequestListing {
-      .list-title {
-        height: 40px;
-        line-height: 40px;
-        color: #04FEFE;
-      }
-      ul.requests {
-        li.request {
-          padding: 10px;
-          margin-top: 5px;
-          background-color: $wet-asphalt;
-          min-height: 70px;
-          &:last-child {
-            border-bottom: 2px solid white;
+    display: block;
+
+
+    //Added to show all pages for now. To be removed once we get the navigation working
+    ul.requests {
+      li.request {
+        margin-top: 5px;
+        background-color: $wet-asphalt;
+        min-height: 100px;
+        &:last-child {
+          border-bottom: 2px solid white;
+        }
+        table {
+          width: 100%;
+          td.col-3 {
+            display: inline-block;
+            width: 20%;
+            .notify-icon {
+              max-width: 60px;
+              background-color: #2D3D44;
+            }
           }
           table {
             width: 100%;
