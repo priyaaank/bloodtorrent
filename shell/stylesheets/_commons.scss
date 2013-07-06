@@ -1,6 +1,6 @@
 $white: #ffffff;
 $black: #000000;
-$grey: #ecf0f1;
+$grey: #C9CBCC;
 html {
   height: 100%;
   background: $grey;
@@ -73,6 +73,25 @@ html {
     .icon-app {
       background: url('/images/icons.png') no-repeat;
       background-position: 0px -395px;
+    }
+    .vertical-top {
+      vertical-align: top;
+    }
+    .span100{
+      display: inline-block;
+      width: 100px;
+    }
+    .span150{
+      display: inline-block;
+      width: 150px;
+    }
+    .span200{
+      display: inline-block;
+      width: 200px;
+    }
+    .span250{
+      display: inline-block;
+      width: 250px;
     }
     .clearfix {
       &:after {

@@ -4,17 +4,23 @@
       New Request
 
   #newRequest
-    .field_label Blood Group
-    %input#bloodgroup.field_value{:type => "text", :name => "bloodgroup"}
+    .field
+      %label.span150.vertical-top.field-label Blood Group
+      %input#bloodgroup.span150.field_value{:type => "text", :name => "bloodgroup"}
 
-    .field_label Quantity
-    %input#quantity.field_value{:type => "text", :name => "quantity"}
+    .field
+      %label.span150.vertical-top.field-label Quantity
+      %input#quantity.span150.field_value{:type => "text", :name => "quantity"}
 
-    .field_label Contact Details
-    %textarea#contact_details.multiline_string{:name => "contact_details"}
+    .field
+      %label.span150.vertical-top.field-label Contact Details
+      %textarea#contact_details.span150.multiline_string{:name => "contact_details"}
 
-    .field_label Location
-    %img#location.image_button{:src => "../images/place.png"}
+    .field
+      %label.span150.vertical-top.field-label Location
+      .field_value.span150.text-center
+        %img#location.image-button{:src => "../images/place.png"}
 
-    %button#submitDonationRequest.submit_button{:name => "submitDonationRequest"}
-      Create
+    .action
+      %button#submitDonationRequest.submit-button{:name => "submitDonationRequest"}
+        Create
