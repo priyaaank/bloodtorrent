@@ -102,9 +102,10 @@ body {
       }
       ul.requests {
         li.request {
+          padding: 10px;
           margin-top: 5px;
           background-color: $wet-asphalt;
-          min-height: 100px;
+          min-height: 70px;
           &:last-child {
             border-bottom: 2px solid white;
           }
@@ -130,14 +131,22 @@ body {
               display: inline-block;
               width: 50%;
               &.person-details {
+                .address,
+                .blood-details,
                 .name {
+                  margin: 6px 0;
+                }
+                .name {
+                  color: $plain-white;
+                  text-transform: capitalize;
                   font-size: 16px;
                   font-weight: bold;
                 }
                 .address,
                 .blood-details {
+                  text-transform: capitalize;
                   font-size: 14px;
-                  color: grey;
+                  color: #a9a9a9;
                 }
               }
             }

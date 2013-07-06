@@ -4,27 +4,27 @@
       All Requests
 
     %script#donationListingTmpl(type="text/html")
-      {{#donations}}
-      %li.request
-        %table
-          %tr
-            %td.person-details.col-1.text-left
-              .name
-                {{requestor}}
-              .address
-                {{contact_details}}
-              .blood-details
-                %span.blood-group
-                  Needs:
-                  %strong {{blood_group}}
-                %span.seperator
-                  ,
-                %span.blood-units
-                  %strong {{quantity}} Units
-      {{/donations}}
+      %ul.requests
+        {{#donations}}
+        %li.request
+          %table
+            %tr
+              %td.person-details.col-1.text-left
+                .name
+                  {{requestor}}
+                .address
+                  {{contact_details}}
+                .blood-details
+                  %span.blood-group
+                    Needs:
+                    %strong {{blood_group}}
+                  %span.seperator
+                    ,
+                  %span.blood-units
+                    %strong {{quantity}} Units
+        {{/donations}}
 
   %h4.list-title.text-center#loadingBanner
     Loading Donation Requests
 
-  %ul.requests
-    #donationListing
+  #donationListing
