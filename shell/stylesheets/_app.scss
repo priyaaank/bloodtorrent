@@ -40,9 +40,9 @@ body {
       background-color: $black;
       height: 50px;
       width: 240px;
-      a{
+      a {
         display: block;
-        .menu-title{
+        .menu-title {
           color: $plain-white;
           height: 100%;
           line-height: 50px;
@@ -50,18 +50,18 @@ body {
         }
       }
     }
-    ul.menu-body{
+    ul.menu-body {
       border-left: 1px solid white;
       border-right: 1px solid white;
-      li{
+      li {
         border-top: 2px solid;
         padding: 5px;
-        &:last-child{
+        &:last-child {
           border-bottom: 2px solid;
         }
-        a{
+        a {
           display: block;
-          .item-detail{
+          .item-detail {
             color: #29B5E5;
             padding-left: 5px;
             height: 50px;
@@ -94,54 +94,51 @@ body {
       }
     }
 
-    //Added to show all pages for now. To be removed once we get the navigation working
-//<<<<<<< HEAD
-//    &#listing {
-//      .page-content {
-//        .list-title {
-//          height: 40px;
-//          line-height: 40px;
-//          color: #04FEFE;
-//=======
-    ul.requests {
-      li.request {
-        margin-top: 5px;
-        background-color: $wet-asphalt;
-        min-height: 100px;
-        &:last-child {
-          border-bottom: 2px solid white;
-//>>>>>>> Modifying UI and also refactored code to be donationRequest instead of listing. Will add create page now
-        }
-        table {
-          width: 100%;
-          td.col-3 {
-            display: inline-block;
-            width: 20%;
-            .notify-icon {
-              max-width: 60px;
-              background-color: #2D3D44;
-            }
+    &#donationRequestListing {
+      .list-title {
+        height: 40px;
+        line-height: 40px;
+        color: #04FEFE;
+      }
+      ul.requests {
+        li.request {
+          margin-top: 5px;
+          background-color: $wet-asphalt;
+          min-height: 100px;
+          &:last-child {
+            border-bottom: 2px solid white;
           }
-          td.col-2 {
-            display: inline-block;
-            width: 20%;
-            .location {
-              width: 60px;
-            }
-          }
-          td.col-1 {
-            min-width: 200px;
-            display: inline-block;
-            width: 50%;
-            &.person-details {
-              .name {
-                font-size: 16px;
-                font-weight: bold;
+          table {
+            width: 100%;
+            td.col-3 {
+              display: inline-block;
+              width: 20%;
+              .notify-icon {
+                max-width: 60px;
+                background-color: #2D3D44;
               }
-              .address,
-              .blood-details {
-                font-size: 14px;
-                color: grey;
+            }
+            td.col-2 {
+              display: inline-block;
+              width: 20%;
+              .location {
+                width: 60px;
+              }
+            }
+            td.col-1 {
+              min-width: 200px;
+              display: inline-block;
+              width: 50%;
+              &.person-details {
+                .name {
+                  font-size: 16px;
+                  font-weight: bold;
+                }
+                .address,
+                .blood-details {
+                  font-size: 14px;
+                  color: grey;
+                }
               }
             }
           }
