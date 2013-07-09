@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'btIcons';
+  src:url('../images/icomoon.eot');
+  src:url('../images/icomoon.eot?#iefix') format('embedded-opentype'),
+  url('../images/icomoon.woff') format('woff'),
+  url('../images/icomoon.ttf') format('truetype'),
+  url('../images/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+/*
+[data-icon]:before {
+  font-family: 'btIcons';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+*/
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+i.icon{
+  font-family: 'btIcons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  font-size: 20px;
+}
+.icon-user:before {
+  content: "\e000";
+}
+.icon-users:before {
+  content: "\e001";
+}
+.icon-users-2:before {
+  content: "\e002";
+}
+.icon-user-2:before {
+  content: "\e003";
+}
+.icon-bubble:before {
+  content: "\e004";
+}
+.icon-bubbles:before {
+  content: "\e005";
+}
+.icon-bubbles-2:before {
+  content: "\e006";
+}
+.icon-bubbles-3:before {
+  content: "\e007";
+}
+.icon-bubbles-4:before {
+  content: "\e008";
+}
+.icon-bubble-2:before {
+  content: "\e009";
+}
+.icon-pushpin:before {
+  content: "\e00a";
+}
+.icon-phone:before {
+  content: "\e00b";
+}
+.icon-settings:before {
+  content: "\e00c";
+}
+.icon-cog:before {
+  content: "\e00d";
+}
+.icon-cog-2:before {
+  content: "\e00e";
+}
+.icon-menu:before {
+  content: "\e00f";
+}
+.icon-facebook:before {
+  content: "\e010";
+}
+.icon-google-plus:before {
+  content: "\e011";
+}
+.icon-twitter:before {
+  content: "\e012";
+}
+.icon-feed:before {
+  content: "\e013";
+}
+.icon-flickr:before {
+  content: "\e014";
+}
+.icon-picassa:before {
+  content: "\e015";
+}
+.icon-droplet:before {
+  content: "\e016";
+}
+.icon-droplet-2:before {
+  content: "\e017";
+}
+.icon-list-2:before {
+  content: "\e018";
+}
+.icon-refresh:before {
+  content: "\e019";
+}
+.icon-plus:before {
+  content: "\e01a";
+}
+.icon-trashcan:before {
+  content: "\e01b";
+}
+.icon-podcast:before {
+  content: "\e01c";
+}
+.icon-warning:before {
+  content: "\e01d";
+}
+.icon-marker:before {
+  content: "\e01e";
+}
+.icon-target:before {
+  content: "\e01f";
+}
+.icon-pencil:before {
+  content: "\e020";
+}
+.icon-radio-checked:before {
+  content: "\e021";
+}
+.icon-radio-unchecked:before {
+  content: "\e022";
+}
+.icon-checkbox-partial:before {
+  content: "\e023";
+}
+.icon-checkbox-unchecked:before {
+  content: "\e024";
+}
+.icon-github:before {
+  content: "\e025";
+}

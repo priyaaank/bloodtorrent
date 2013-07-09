@@ -6,12 +6,18 @@ header {
   .page-title {
     line-height: 50px;
     font-size: 25px;
+    text-align: center;
   }
   a.menu-buttons{
     display: block;
-    width: 45px;
-    height: 45px;
-    margin-top: 5px;
+    color: white;
+    margin: 5px 10px;
+    font-size: 20px;
+    text-decoration: none;
+    i{
+      font-size: 30px;
+      color: rgba(255,255,255,0.9);
+    }
     &.left{
       float: left;
     }

@@ -36,11 +36,7 @@ html {
     .float-right {
       float: right;
     }
-    i {
-      height: 50px;
-      width: 60px;
-      display: inline-block;
-    }
+
     .icon-blip {
       background: url("/images/icons.png");
       background-position: 0px -115px;
@@ -53,18 +49,18 @@ html {
       background: url('/images/icons.png') no-repeat;
       background-position: -2px -58px;
     }
-    .icon-settings {
-      background: url('/images/icons.png') no-repeat;
-      background-position: 0px -170px;
-    }
+    //.icon-settings {
+    //  background: url('/images/icons.png') no-repeat;
+    //  background-position: 0px -170px;
+    //}
     .icon-new-request {
       background: url('/images/icons.png') no-repeat;
       background-position: -3px -225px;
     }
-    .icon-menu-list {
-      background: url('/images/icons.png') no-repeat;
-      background-position: 0px -280px;
-    }
+    //.icon-menu-list {
+    //  background: url('/images/icons.png') no-repeat;
+    //  background-position: 0px -280px;
+    //}
     .icon-back {
       background: url('/images/icons.png') no-repeat;
       background-position: 0px -335px;
