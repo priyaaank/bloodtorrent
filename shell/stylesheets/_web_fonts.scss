@@ -17,3 +17,57 @@
   font-family: "Roboto Regular";
   src: url("../images/Roboto-Regular.ttf");
 }
+
+
+@font-face {
+  font-family: 'colaborate-light';
+  src: url('../images/ColabLig-webfont.eot');
+  src: url('../images/ColabLig-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../images/ColabLig-webfont.woff') format('woff'),
+  url('../images/ColabLig-webfont.ttf') format('truetype'),
+  url('../images/ColabLig-webfont.svg#colaboratelightregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'colaborate-medium';
+  src: url('../images/ColabMed-webfont.eot');
+  src: url('../images/ColabMed-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../images/ColabMed-webfont.woff') format('woff'),
+  url('../images/ColabMed-webfont.ttf') format('truetype'),
+  url('../images/ColabMed-webfont.svg#colaborate-mediumregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'colaborate-regular';
+  src: url('../images/ColabReg-webfont.eot');
+  src: url('../images/ColabReg-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../images/ColabReg-webfont.woff') format('woff'),
+  url('../images/ColabReg-webfont.ttf') format('truetype'),
+  url('../images/ColabReg-webfont.svg#colaborate-regularregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'colaborate-thin';
+  src: url('../images/ColabThi-webfont.eot');
+  src: url('../images/ColabThi-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../images/ColabThi-webfont.woff') format('woff'),
+  url('../images/ColabThi-webfont.ttf') format('truetype'),
+  url('../images/ColabThi-webfont.svg#colaborate-thinregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+$colThin: 'colaborate-thin';
+$colLite: 'colaborate-light';
+$colReg: 'colaborate-regular';
+$colMed: 'colaborate-medium';

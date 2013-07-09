@@ -1,9 +1,9 @@
 // fix the build task so that we can remove these dependencies in all _CSS.scss files.
 @import "variables";
 @import "mixins";
-@import "web_fonts";
 
 body {
+  color: white;
   .drawer-menu {
     border: 1px solid white;
     position: absolute;
@@ -41,78 +41,6 @@ body {
             padding-left: 5px;
             height: 50px;
             line-height: 50px;
-          }
-        }
-      }
-    }
-  }
-
-  .page {
-    min-width: 320px;
-    padding-top: 52px;
-    display: block;
-
-
-    //Added to show all pages for now. To be removed once we get the navigation working
-    ul.requests {
-      li.request {
-        margin-top: 5px;
-        background-color: $wet-asphalt;
-        min-height: 100px;
-        &:last-child {
-          border-bottom: 2px solid white;
-        }
-        table {
-          width: 100%;
-          td.col-3 {
-            display: inline-block;
-            width: 20%;
-            .notify-icon {
-              max-width: 60px;
-              background-color: #2D3D44;
-            }
-          }
-          table {
-            width: 100%;
-            td.col-3 {
-              display: inline-block;
-              width: 20%;
-              .notify-icon {
-                max-width: 60px;
-                background-color: #2D3D44;
-              }
-            }
-            td.col-2 {
-              display: inline-block;
-              width: 20%;
-              .location {
-                width: 60px;
-              }
-            }
-            td.col-1 {
-              min-width: 200px;
-              display: inline-block;
-              width: 50%;
-              &.person-details {
-                .address,
-                .blood-details,
-                .name {
-                  margin: 6px 0;
-                }
-                .name {
-                  color: $plain-white;
-                  text-transform: capitalize;
-                  font-size: 16px;
-                  font-weight: bold;
-                }
-                .address,
-                .blood-details {
-                  text-transform: capitalize;
-                  font-size: 14px;
-                  color: #a9a9a9;
-                }
-              }
-            }
           }
         }
       }

@@ -1,28 +1,27 @@
 %div#donationRequestListing.page
-  %div.action-bar.clearfix.text-center
-    %h2.page-title
-      All Requests
+  %script#donationListingTmpl(type="text/html")
+    %ul.list
+      {{#donations}}
+      %li.request
+        .pure-g
+          .pure-u-1-4
+            .avatar
+              -# This should be replaced by some image/avatar image.
+              %i.icon.icon-users-2
+          .pure-u-1-2
+            .title.name {{requestor}}
+            .subtitle.address
+              %span {{contact_details}}
+              %a.locator{:href=>"#"}
+                %i.icon.icon-marker
+            .highlight.blood-details
+              %strong {{blood_group}}
+              %span of
+              %strong {{quantity}}
+              %span Units
+          .pure-u-1-4
 
-    %script#donationListingTmpl(type="text/html")
-      %ul.requests
-        {{#donations}}
-        %li.request
-          %table
-            %tr
-              %td.person-details.col-1.text-left
-                .name
-                  {{requestor}}
-                .address
-                  {{contact_details}}
-                .blood-details
-                  %span.blood-group
-                    Needs:
-                    %strong {{blood_group}}
-                  %span.seperator
-                    ,
-                  %span.blood-units
-                    %strong {{quantity}} Units
-        {{/donations}}
+      {{/donations}}
 
   %h4.list-title.text-center#loadingBanner
     Loading Donation Requests
