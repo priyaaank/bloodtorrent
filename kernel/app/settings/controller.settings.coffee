@@ -24,8 +24,6 @@ bloodtorrent.settings.controller = ({views, changePage, settingsSaved}) ->
 
     settingsSaved()
 
-
-
   captureUserSettings = () ->
     changePage("userSetup")
     views.userSetupPage.bind "saveUserPreferences", savePreferences

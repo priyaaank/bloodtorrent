@@ -7,8 +7,8 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     changePage("donationRequestListing")
     requestDonations()
 
-  createNewRequest = () ->
-    changePage("submitDonationRequest")
+  showNewDonationPage = () ->
+    changePage("newDonationRequest")
     bindCreateDonationView()
 
   successCallback = (successResponse) ->
@@ -37,7 +37,7 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     repositories.donationsRepository.createDonation({donationRequest, onDonationCreateSuccess, onDonationCreateFailure})
 
   onDonationCreateSuccess = (successResponse) ->
-    calatrava.alert("created new donation")
+    showDonationListing()
 
   onDonationCreateFailure = (errorCode, errorMessage) ->
     calatrava.alert("new donation creation failed")
@@ -58,6 +58,6 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
 
   initialize = () ->
     showDonationListing: showDonationListing
-    createNewRequest: createNewRequest
+    showNewDonationPage: showNewDonationPage
 
   initialize()
