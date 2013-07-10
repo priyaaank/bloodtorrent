@@ -26,7 +26,7 @@ bloodtorrent.donationRequest.repository = ({ajax}) ->
         latitude        : "12.11"
         longitude       : "11.11"
         quantity        : options.donationRequest.units
-        requestor       : "unknown"
+        requestor       : options.donationRequest.requestor || "unknown"
         contact_details : options.donationRequest.contactDetails
       success: (responseData) ->
         parsedResponse = if _(responseData).isEmpty() then "success" else JSON.parse(responseData)

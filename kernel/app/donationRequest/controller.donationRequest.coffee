@@ -19,14 +19,18 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     calatrava.alert(errorResponse)
 
   requestDonations = () ->
+    lookupRadius = null
+    lookupBloodGroup = null
+    calatrava.preferences.retrieve "notificationRadius", (radius) -> lookupRadius = radius
+    calatrava.preferences.retrieve "bloodGroup", (bloodgroup) -> lookupBloodGroup = bloodgroup
     options =
       successCallback: successCallback
       failureCallback: failureCallback
-      bloodGroup: "opositive"
+      bloodGroup: lookupBloodGroup
       location:
         latitude: 18.5236
         longitude: 73.8478
-      radius: 10000
+      radius: lookupRadius
 
     repositories.donationsRepository.requestDonations(options)
 
@@ -49,10 +53,12 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     bloodGroup = null
     units = null
     contactDetails = null
+    requestor = null
+    calatrava.preferences.retrieve "userName", (requestorNickName) -> requestor = requestorNickName
     views.newDonationRequestPage.get "bloodgroup", (bloodGroupFromView) -> bloodGroup = bloodGroupFromView
     views.newDonationRequestPage.get "quantity", (unitsFromView) -> units = unitsFromView
     views.newDonationRequestPage.get "contact_details", (contactDetailsFromView) -> contactDetails = contactDetailsFromView
-    donationRequest = new bloodtorrent.models.donationRequest({bloodGroup, units, contactDetails})
+    donationRequest = new bloodtorrent.models.donationRequest({bloodGroup, units, contactDetails, requestor})
     errors = donationRequest.errors unless donationRequest.isValid()
     if _.isEmpty(errors) then createNewRequest(donationRequest) else renderErrors()
 

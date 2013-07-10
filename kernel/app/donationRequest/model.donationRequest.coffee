@@ -15,11 +15,12 @@ bloodtorrent.models.donationRequest = class DonationRequest
 
   integerRegex = /^\d+$/
 
-  constructor: ({bloodGroup, units, location, contactDetails}) ->
+  constructor: ({bloodGroup, units, location, contactDetails, requestor}) ->
     @bloodGroup = BLOOD_GROUPS[bloodGroup.toUpperCase()] || "unknown"
     @units = units
     @location = location
     @contactDetails = contactDetails
+    @requestor = requestor
 
   isInteger = (value) ->
     integerRegex.test value
