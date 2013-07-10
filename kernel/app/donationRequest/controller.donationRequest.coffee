@@ -1,11 +1,15 @@
 bloodtorrent ?= {}
 bloodtorrent.donationRequest ?= {}
 
-bloodtorrent.donationRequest.controller = ({views, repositories}) ->
+bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
 
-  initialize = () ->
-#    bindCreateDonationView()
+  showDonationListing = () ->
+    changePage("donationRequestListing")
     requestDonations()
+
+  createNewRequest = () ->
+    changePage("submitDonationRequest")
+    bindCreateDonationView()
 
   successCallback = (successResponse) ->
     views.donationRequestListingPage.render
@@ -22,7 +26,7 @@ bloodtorrent.donationRequest.controller = ({views, repositories}) ->
       location:
         latitude: 18.5236
         longitude: 73.8478
-      radius: 50
+      radius: 10000
 
     repositories.donationsRepository.requestDonations(options)
 
@@ -51,5 +55,9 @@ bloodtorrent.donationRequest.controller = ({views, repositories}) ->
     donationRequest = new bloodtorrent.models.donationRequest({bloodGroup, units, contactDetails})
     errors = donationRequest.errors unless donationRequest.isValid()
     if _.isEmpty(errors) then createNewRequest(donationRequest) else renderErrors()
+
+  initialize = () ->
+    showDonationListing: showDonationListing
+    createNewRequest: createNewRequest
 
   initialize()

@@ -29,6 +29,6 @@ bloodtorrent.induction.controller = ({views, changePage}) ->
     changePage("userSetup")
     views.userSetupPage.bind "saveUserPreferences", savePreferences
 
-  startApp = () -> bloodtorrent.donationRequest.start();
+  startApp = () -> bloodtorrent.menu.start();
 
   initialize()

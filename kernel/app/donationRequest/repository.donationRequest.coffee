@@ -10,9 +10,9 @@ bloodtorrent.donationRequest.repository = ({ajax}) ->
       url: url + queryString
       method: "GET"
       contentType: "application/json"
-      success: (responseData) =>
+      success: (responseData) ->
         options.successCallback JSON.parse(responseData)
-      failure: (errorCode, errorMsg) =>
+      failure: (errorCode, errorMsg) ->
         options.failureCallback {"status" : "Error", errorMessage : errorMsg }
 
   createDonation : (options) ->
@@ -28,8 +28,8 @@ bloodtorrent.donationRequest.repository = ({ajax}) ->
         quantity        : options.donationRequest.units
         requestor       : "unknown"
         contact_details : options.donationRequest.contactDetails
-      success: (responseData) =>
+      success: (responseData) ->
         parsedResponse = if _(responseData).isEmpty() then "success" else JSON.parse(responseData)
         options.onDonationCreateSuccess parsedResponse
-      failure: (errorCode, errorMsg) =>
+      failure: (errorCode, errorMsg) ->
         options.onDonationCreateFailure {"status" : "Error", errorMessage : errorMsg }
