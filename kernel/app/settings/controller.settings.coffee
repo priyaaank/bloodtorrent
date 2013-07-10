@@ -1,11 +1,10 @@
 bloodtorrent ?= {}
 bloodtorrent.settings ?= {}
 
-bloodtorrent.settings.controller = ({views, changePage}) ->
+bloodtorrent.settings.controller = ({views, changePage, settingsSaved}) ->
 
   initialize = () ->
-    calatrava.preferences.retrieve "firstTimeSetup", (isSetupComplete) ->
-      if isSetupComplete then startApp() else runThroughInitialSetup()
+    captureUserSettings()
 
   persistPreferenceValues = (options) ->
     calatrava.preferences.add("bloodGroup", options.bloodGroup)
@@ -23,12 +22,12 @@ bloodtorrent.settings.controller = ({views, changePage}) ->
     persistPreferenceValues({userName, bloodGroup, radius})
     calatrava.preferences.add("firstTimeSetup", "Done")
 
-    startApp()
+    settingsSaved()
 
-  runThroughInitialSetup = () ->
+
+
+  captureUserSettings = () ->
     changePage("userSetup")
     views.userSetupPage.bind "saveUserPreferences", savePreferences
-
-  startApp = () -> bloodtorrent.menu.start();
 
   initialize()
