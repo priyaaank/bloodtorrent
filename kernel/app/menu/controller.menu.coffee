@@ -13,6 +13,6 @@ bloodtorrent.menu.controller = ({views, controllers}) ->
 
   showDonationRequestsListing = () -> controllers.donationRequest.showDonationListing();
   showNewDonationRequestPage  = () -> controllers.donationRequest.createNewRequest();
-  showSettingsPage            = () -> bloodtorrent.induction.start();
+  showSettingsPage            = () -> bloodtorrent.settings.start();
 
   initialize()

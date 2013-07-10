@@ -1,7 +1,7 @@
 bloodtorrent ?= {}
-bloodtorrent.induction ?= {}
+bloodtorrent.settings ?= {}
 
-bloodtorrent.induction.controller = ({views, changePage}) ->
+bloodtorrent.settings.controller = ({views, changePage}) ->
 
   initialize = () ->
     calatrava.preferences.retrieve "firstTimeSetup", (isSetupComplete) ->

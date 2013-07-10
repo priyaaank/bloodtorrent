@@ -1,8 +1,8 @@
 bloodtorrent ?= {}
-bloodtorrent.induction ?= {}
+bloodtorrent.settings ?= {}
 
-bloodtorrent.induction.start = ->
-  bloodtorrent.induction.controller
+bloodtorrent.settings.start = ->
+  bloodtorrent.settings.controller
     views:
       userSetupPage: calatrava.bridge.pages.pageNamed "userSetup"
     changePage: calatrava.bridge.changePage
