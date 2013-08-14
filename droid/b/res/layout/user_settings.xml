@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout android:id="@+id/user_name_section"
+                  android:layout_height="wrap_content"
+                  android:layout_width="match_parent"
+                  android:orientation="horizontal">
+
+        <TextView android:id="@+id/user_name_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Username" />
+        <EditText android:id="@+id/user_name_value"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:layout_alignParentRight="true"
+                  android:layout_toRightOf="@id/user_name_label"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout android:id="@+id/user_blood_group_section"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal">
+
+        <TextView android:id="@+id/user_blood_group_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Blood Group" />
+        <Spinner  android:id="@+id/user_blood_group_value"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:layout_alignParentRight="true"
+                  android:layout_toRightOf="@id/user_blood_group_label"/>
+
+    </RelativeLayout>
+
+    <LinearLayout android:id="@+id/user_radius_section"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal">
+
+        <TextView android:id="@+id/user_radius_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Blood Group" />
+
+        <net.simonvt.numberpicker.NumberPicker
+                  android:id="@+id/user_radius_value"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

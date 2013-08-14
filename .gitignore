@@ -21,3 +21,8 @@ web/apache/conf/httpd.conf
 **.psd
 .rvmrc
 *.DS_Store
+droid/b/assets/
+droid/b/b.iml
+droid/b/bin/
+droid/b/gen/
+droid/b/out/

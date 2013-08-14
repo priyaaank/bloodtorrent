@@ -1,11 +1,10 @@
 package com.b;
 
-import android.app.Activity;
 import android.os.Bundle;
-
 import com.calatrava.bridge.CalatravaApplication;
+import com.calatrava.bridge.RegisteredActivity;
 
-public class Bootstrap extends Activity
+public class Bootstrap extends RegisteredActivity
 {
   @Override
   public void onCreate(Bundle savedInstanceState)
@@ -17,6 +16,21 @@ public class Bootstrap extends Activity
     app.provideActivityContext(this);
 
     // And then start your first feature
-    app.launchFlow("example.converter.start");
+    app.launchFlow("bloodtorrent.launcher.launch");
+  }
+
+  @Override
+  protected String getPageName() {
+    return null;
+  }
+
+  @Override
+  public String getFieldValue(String field) {
+    return null;
+  }
+
+  @Override
+  public void render(String json) {
+
   }
 }
