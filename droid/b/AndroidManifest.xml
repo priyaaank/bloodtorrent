@@ -14,5 +14,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserSetupActivity" android:label="UserSettings"  android:theme="@style/SampleTheme.Light" />
+        <activity android:name=".MenuActivity" android:label="Menu"  android:theme="@style/SampleTheme.Light" />
     </application>
 </manifest> 
