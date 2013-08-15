@@ -5,8 +5,15 @@ calatrava.pageView.userSetup = ->
   $page = $('#userSetup')
   $p = (sel)-> $(sel, $page)
 
+  initializeValues = ($select, data) ->
+    $select.find("#userName").val(data.userName)
+    $select.find("#notificationRadius").val(data.radius)
+    $select.find("#userBloodGroup").val(data.bloodGroup)
+
   renderSection = (key, data) ->
-    $p("#" + key).val(data)
+    switch key
+      when 'initValues' then initializeValues($p('#setupData'), data)
+      else $p("#" + key).val(data)
 
   bind: (event, handler) ->
     $p("#" + event).off('click').on 'click', handler

@@ -4,6 +4,7 @@ bloodtorrent.settings ?= {}
 bloodtorrent.settings.controller = ({views, changePage, settingsSaved}) ->
 
   initialize = () ->
+    renderExistingValues()
     captureUserSettings()
 
   persistPreferenceValues = (options) ->
@@ -27,5 +28,20 @@ bloodtorrent.settings.controller = ({views, changePage, settingsSaved}) ->
   captureUserSettings = () ->
     changePage("userSetup")
     views.userSetupPage.bind "saveUserPreferences", savePreferences
+
+  renderExistingValues = () ->
+    userName = null
+    bloodGroup = null
+    radius = null
+
+    calatrava.preferences.retrieve "bloodGroup", (value) -> bloodGroup = value
+    calatrava.preferences.retrieve "notificationRadius", (value) -> radius = value
+    calatrava.preferences.retrieve "userName", (value) -> userName = value
+
+    views.userSetupPage.render
+      initValues:
+        bloodGroup: bloodGroup
+        radius: radius
+        userName: userName
 
   initialize()
