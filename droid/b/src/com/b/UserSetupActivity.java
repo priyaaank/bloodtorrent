@@ -103,8 +103,13 @@ public class UserSetupActivity extends RegisteredActivity {
     String radius = jsonObject.getString("notificationRadius");
     String bloodGroup = jsonObject.getString("bloodGroup");
 
-    ((EditText)this.findViewById(R.id.user_name_value)).setText(userName);
-    ((NumberPicker)this.findViewById(R.id.user_radius_value)).setValue(Integer.valueOf(radius));
-    ((Spinner)this.findViewById(R.id.user_blood_group_value)).setSelection(bloodGroupListKeys.indexOf(bloodGroup));
+    if(valueIsValid(userName)) ((EditText)this.findViewById(R.id.user_name_value)).setText(userName);
+    if(valueIsValid(radius)) ((NumberPicker)this.findViewById(R.id.user_radius_value)).setValue(Integer.valueOf(radius));
+    if(valueIsValid(bloodGroup)) ((Spinner)this.findViewById(R.id.user_blood_group_value)).setSelection(bloodGroupListKeys.indexOf(bloodGroup));
+  }
+
+  private boolean valueIsValid(String valueToValidate) {
+    return (valueToValidate != null && valueToValidate.trim().length() > 0);
+
   }
 }
