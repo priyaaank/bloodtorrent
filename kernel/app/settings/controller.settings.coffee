@@ -9,21 +9,22 @@ bloodtorrent.settings.controller = ({views, changePage, settingsSaved}) ->
 
   persistPreferenceValues = (options) ->
     calatrava.preferences.add("bloodGroup", options.bloodGroup)
-    calatrava.preferences.add("notificationRadius", options.radius)
+    calatrava.preferences.add("notificationRadius", options.notificationRadius)
     calatrava.preferences.add("userName", options.userName)
 
   savePreferences = () ->
-    userName = null
-    bloodGroup = null
-    radius = null
-    views.userSetupPage.get "userName", (value) -> userName = value
-    views.userSetupPage.get "userBloodGroup", (value) -> bloodGroup = value
-    views.userSetupPage.get "notificationRadius", (value) -> radius = value
+    valueHash = {}
+    fields = ["bloodGroup", "notificationRadius", "userName"]
 
-    persistPreferenceValues({userName, bloodGroup, radius})
-    calatrava.preferences.add("firstTimeSetup", "Done")
+    saveSettingsAndContinue = _.after fields.length, () ->
+      persistPreferenceValues(valueHash)
+      calatrava.preferences.add("firstTimeSetup", "Done")
+      settingsSaved()
 
-    settingsSaved()
+    _.each fields, (fieldName) ->
+      views.userSetupPage.get fieldName, (value) ->
+        valueHash[fieldName] = value
+        saveSettingsAndContinue()
 
   captureUserSettings = () ->
     views.userSetupPage.bind "saveUserPreferences", savePreferences
@@ -32,7 +33,7 @@ bloodtorrent.settings.controller = ({views, changePage, settingsSaved}) ->
     valueHash = {}
     fields = ["bloodGroup", "notificationRadius", "userName"]
 
-    renderOnceAllFieldsAreFetched = _.after 3, () ->
+    renderOnceAllFieldsAreFetched = _.after fields.length, () ->
       changePage("userSetup")
       views.userSetupPage.render
         initValues:

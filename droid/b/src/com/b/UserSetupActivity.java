@@ -45,13 +45,6 @@ public class UserSetupActivity extends RegisteredActivity {
     setContentView(R.layout.user_settings);
     initalizeNumberPicker();
     initializeBloodGroupSpinner();
-    initializeFieldNameToIdMapping();
-  }
-
-  private void initializeFieldNameToIdMapping() {
-    fieldNameToIdMapping.put("userName", R.id.user_name_value);
-    fieldNameToIdMapping.put("userBloodGroup", R.id.user_blood_group_value);
-    fieldNameToIdMapping.put("notificationRadius", R.id.user_radius_value);
   }
 
   private void initializeBloodGroupSpinner() {
@@ -82,7 +75,7 @@ public class UserSetupActivity extends RegisteredActivity {
     if("userName".equalsIgnoreCase(field))
     {
       return ((EditText)this.findViewById(R.id.user_name_value)).getText().toString();
-    } else if("userBloodGroup".equalsIgnoreCase(field))
+    } else if("bloodGroup".equalsIgnoreCase(field))
     {
       return bloodGroupList.get(((Spinner)this.findViewById(R.id.user_blood_group_value)).getSelectedItemPosition());
     } else if("notificationRadius".equalsIgnoreCase(field))

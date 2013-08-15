@@ -16,7 +16,6 @@ public class PreferencesPlugin implements RegisteredPlugin {
   private final String TAG = this.getClass().getCanonicalName();
 
   private Context context;
-  private String okCallbackHandle;
   private PluginRegistry pluginRegistry;
   private AppPreferences applicationPreferences;
 
@@ -29,6 +28,7 @@ public class PreferencesPlugin implements RegisteredPlugin {
 
       @Override
       public void execute(Intent action, RegisteredActivity frontmost) {
+        String okCallbackHandle = action.getExtras().getString("callbackHandle");
         String methodName = action.getExtras().getString("method");
         if(isMethodNameInvalid(methodName)) return;
 
@@ -36,7 +36,7 @@ public class PreferencesPlugin implements RegisteredPlugin {
         String value = action.getExtras().getString("value");
 
         if("retrieve".equalsIgnoreCase(methodName)) {
-          callback(applicationPreferences.retrieve(key));
+          callback(applicationPreferences.retrieve(key), okCallbackHandle);
         } else if("add".equalsIgnoreCase(methodName)) {
           applicationPreferences.add(key,value);
         }
@@ -46,7 +46,7 @@ public class PreferencesPlugin implements RegisteredPlugin {
         return methodName == null || methodName.trim().length() == 0;
       }
 
-      private void callback(String storedValue) {
+      private void callback(String storedValue, String okCallbackHandle) {
         PreferencesPlugin.this.pluginRegistry.invokeCallback(okCallbackHandle, storedValue);
       }
     });
@@ -54,12 +54,13 @@ public class PreferencesPlugin implements RegisteredPlugin {
 
   @Override
   public void call(String method, Map<String, Object> args) {
-    okCallbackHandle = (String) args.get("okHandler");
+    String okCallbackHandle = (String) args.get("okHandler");
     String key = (String) ((Map) args.get("message")).get("key");
     String value = (String) ((Map) args.get("message")).get("value");
     context.sendBroadcast(pluginRegistry.pluginCommand("storage")
         .putExtra("method", method)
         .putExtra("key", key)
-        .putExtra("value", value));
+        .putExtra("value", value)
+        .putExtra("callbackHandle", okCallbackHandle));
   }
 }
