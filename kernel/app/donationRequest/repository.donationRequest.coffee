@@ -4,7 +4,7 @@ bloodtorrent.donationRequest ?= {}
 bloodtorrent.donationRequest.repository = ({ajax}) ->
 
   requestDonations : (options) ->
-    url = "#{calatrava.bridge.environment().serviceEndpoint}/api/donation/search"
+    url = "#{bloodtorrent.environment().apiEndpoint}/donation/search"
     queryString = "?blood_group=#{options.bloodGroup}&latitude=#{options.location.latitude}&longitude=#{options.location.longitude}&radius=#{options.radius}"
     ajax
       url: url + queryString
@@ -16,7 +16,7 @@ bloodtorrent.donationRequest.repository = ({ajax}) ->
         options.failureCallback {"status" : "Error", errorMessage : errorMsg }
 
   createDonation : (options) ->
-    url = "#{calatrava.bridge.environment().serviceEndpoint}/api/donation/new"
+    url = "#{bloodtorrent.environment().apiEndpoint}/donation/new"
     ajax
       url: url
       method: "POST"

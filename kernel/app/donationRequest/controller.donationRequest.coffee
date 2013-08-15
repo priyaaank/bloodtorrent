@@ -54,13 +54,15 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     units = null
     contactDetails = null
     requestor = null
-    calatrava.preferences.retrieve "userName", (requestorNickName) -> requestor = requestorNickName
-    views.newDonationRequestPage.get "bloodgroup", (bloodGroupFromView) -> bloodGroup = bloodGroupFromView
+
+    views.newDonationRequestPage.get "bloodGroup", (bloodGroupFromView) -> bloodGroup = bloodGroupFromView
     views.newDonationRequestPage.get "quantity", (unitsFromView) -> units = unitsFromView
-    views.newDonationRequestPage.get "contact_details", (contactDetailsFromView) -> contactDetails = contactDetailsFromView
-    donationRequest = new bloodtorrent.models.donationRequest({bloodGroup, units, contactDetails, requestor})
-    errors = donationRequest.errors unless donationRequest.isValid()
-    if _.isEmpty(errors) then createNewRequest(donationRequest) else renderErrors()
+    views.newDonationRequestPage.get "contactDetails", (contactDetailsFromView) -> contactDetails = contactDetailsFromView
+    calatrava.preferences.retrieve "userName", (requestorNickName) ->
+      requestor = requestorNickName
+      donationRequest = new bloodtorrent.models.donationRequest({bloodGroup, units, contactDetails, requestor})
+      errors = donationRequest.errors unless donationRequest.isValid()
+      if _.isEmpty(errors) then createNewRequest(donationRequest) else renderErrors()
 
   initialize = () ->
     showDonationListing: showDonationListing

@@ -2,11 +2,6 @@ calatrava ?= {}
 calatrava.bridge = calatrava.bridge ? {}
 calatrava.bridge.web = calatrava.bridge.web ? {}
 
-calatrava.bridge.environment = () ->
-  sessionTimeout: 600
-  serviceEndpoint: "http://localhost:8888"
-  apiEndpoint: ""
-
 calatrava.bridge.web.ajax = (options) ->
   loader = $("#loader")
 

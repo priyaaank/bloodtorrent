@@ -82,6 +82,7 @@
     <Button android:id="@+id/save_new_donation_request"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:onClick="createNewDonation"
             android:text="Save" />
 
 </LinearLayout>
