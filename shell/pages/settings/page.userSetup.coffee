@@ -7,7 +7,7 @@ calatrava.pageView.userSetup = ->
 
   initializeValues = ($select, data) ->
     $select.find("#userName").val(data.userName)
-    $select.find("#notificationRadius").val(data.radius)
+    $select.find("#notificationRadius").val(data.notificationRadius)
     $select.find("#userBloodGroup").val(data.bloodGroup)
 
   renderSection = (key, data) ->

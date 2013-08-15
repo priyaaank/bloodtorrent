@@ -1,6 +1,7 @@
 package com.b;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -8,6 +9,8 @@ import android.widget.Spinner;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
 import net.simonvt.numberpicker.NumberPicker;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +21,7 @@ import java.util.Map;
 public class UserSetupActivity extends RegisteredActivity {
 
   final static List<String> bloodGroupList = new ArrayList<String>();
+  final static String TAG = UserSetupActivity.class.getCanonicalName();
 
   static {
     bloodGroupList.add("OPositive");
@@ -29,6 +33,8 @@ public class UserSetupActivity extends RegisteredActivity {
     bloodGroupList.add("BNegative");
     bloodGroupList.add("ABNegative");
   }
+
+  public static final String INIT_VALUES = "initValues";
 
   final Map<String, Integer> fieldNameToIdMapping = new HashMap<String, Integer>();
 
@@ -89,9 +95,23 @@ public class UserSetupActivity extends RegisteredActivity {
 
   @Override
   public void render(String json) {
-    if("blah".equalsIgnoreCase(json))
-    {
-
+    try {
+      JSONObject dataObject = new JSONObject(json);
+      String key = String.valueOf(dataObject.keys().next());
+      if(INIT_VALUES.equalsIgnoreCase(key)) {
+        updateViewFromJsonObject(dataObject);
+      }
+    } catch (JSONException e) {
+      Log.e(TAG, e.getMessage());
     }
+  }
+
+  private void updateViewFromJsonObject(JSONObject dataObject) throws JSONException {
+    JSONObject jsonObject = dataObject.getJSONObject(INIT_VALUES);
+    String userName = jsonObject.getString("userName");
+    String radius = jsonObject.getString("notificationRadius");
+
+    ((EditText)this.findViewById(R.id.user_name_value)).setText(userName);
+    ((NumberPicker)this.findViewById(R.id.user_radius_value)).setValue(Integer.valueOf(radius));
   }
 }
