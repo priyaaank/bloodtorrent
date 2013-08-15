@@ -13,7 +13,7 @@ import java.util.Map;
 @CalatravaPlugin(name = "preferences")
 public class PreferencesPlugin implements RegisteredPlugin {
 
-  private final String TAG = this.getClass().getCanonicalName();
+  private final static String TAG = PreferencesPlugin.class.getCanonicalName();
 
   private Context context;
   private PluginRegistry pluginRegistry;
