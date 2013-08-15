@@ -8,16 +8,19 @@
     <Button android:id="@+id/new_request_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New Request" />
+            android:text="New Request"
+            android:onClick="initiateNewRequestFlow" />
 
     <Button android:id="@+id/request_listing_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="List Requests" />
+            android:text="List Requests"
+            android:onClick="initiateRequestListingFlow"/>
 
     <Button android:id="@+id/settings_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Settings" />
+            android:text="Settings"
+            android:onClick="initiateSettingsFlow"/>
 
 </LinearLayout>

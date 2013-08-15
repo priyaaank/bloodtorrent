@@ -89,6 +89,9 @@ public class UserSetupActivity extends RegisteredActivity {
 
   @Override
   public void render(String json) {
+    if("blah".equalsIgnoreCase(json))
+    {
 
+    }
   }
 }

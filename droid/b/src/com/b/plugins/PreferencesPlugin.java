@@ -35,11 +35,9 @@ public class PreferencesPlugin implements RegisteredPlugin {
         String key = action.getExtras().getString("key");
         String value = action.getExtras().getString("value");
 
-        if("retrieve".equalsIgnoreCase(methodName))
-        {
+        if("retrieve".equalsIgnoreCase(methodName)) {
           callback(applicationPreferences.retrieve(key));
-        } else if("add".equalsIgnoreCase(methodName))
-        {
+        } else if("add".equalsIgnoreCase(methodName)) {
           applicationPreferences.add(key,value);
         }
       }

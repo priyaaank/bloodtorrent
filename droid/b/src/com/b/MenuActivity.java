@@ -1,6 +1,7 @@
 package com.b;
 
 import android.os.Bundle;
+import android.view.View;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
 
@@ -26,6 +27,18 @@ public class MenuActivity extends RegisteredActivity {
 
   @Override
   public void render(String json) {
+    //Do Nothing
+  }
 
+  public void initiateNewRequestFlow(View newRequestButton) {
+    this.triggerEvent("newDonationRequest", new String[]{});
+  }
+
+  public void initiateRequestListingFlow(View donationsButton) {
+    this.triggerEvent("donationRequests", new String[]{});
+  }
+
+  public void initiateSettingsFlow(View settingsButton) {
+      this.triggerEvent("settings", new String[]{});
   }
 }
