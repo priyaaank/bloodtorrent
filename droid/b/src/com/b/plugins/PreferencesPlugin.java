@@ -1,8 +1,12 @@
-package com.calatrava.bridge;
+package com.b.plugins;
 
 import android.content.Context;
 import android.content.Intent;
 import com.calatrava.CalatravaPlugin;
+import com.calatrava.bridge.PluginCommand;
+import com.calatrava.bridge.PluginRegistry;
+import com.calatrava.bridge.RegisteredActivity;
+import com.calatrava.bridge.RegisteredPlugin;
 
 import java.util.Map;
 
@@ -14,27 +18,34 @@ public class PreferencesPlugin implements RegisteredPlugin {
   private Context context;
   private String okCallbackHandle;
   private PluginRegistry pluginRegistry;
+  private AppPreferences applicationPreferences;
 
   @Override
   public void setContext(PluginRegistry registry, Context context) {
     this.pluginRegistry = registry;
     this.context = context;
+    this.applicationPreferences = new AppPreferences(context.getApplicationContext());
     registry.installCommand("storage", new PluginCommand() {
 
       @Override
       public void execute(Intent action, RegisteredActivity frontmost) {
         String methodName = action.getExtras().getString("method");
-        if(methodName == null || methodName.trim().length() == 0) return;
+        if(isMethodNameInvalid(methodName)) return;
+
+        String key = action.getExtras().getString("key");
+        String value = action.getExtras().getString("value");
 
         if("retrieve".equalsIgnoreCase(methodName))
         {
-          callback("");
+          callback(applicationPreferences.retrieve(key));
         } else if("add".equalsIgnoreCase(methodName))
         {
-          //Store the value
-        } else {
-          //Do nothing
+          applicationPreferences.add(key,value);
         }
+      }
+
+      private boolean isMethodNameInvalid(String methodName) {
+        return methodName == null || methodName.trim().length() == 0;
       }
 
       private void callback(String storedValue) {
