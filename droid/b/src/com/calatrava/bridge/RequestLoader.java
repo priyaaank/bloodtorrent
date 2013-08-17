@@ -26,6 +26,6 @@ public class RequestLoader {
   }
   
   public void onLoadingFinish() {
-    dialog.hide();
+    if(dialog != null) dialog.hide();
   }
 }
