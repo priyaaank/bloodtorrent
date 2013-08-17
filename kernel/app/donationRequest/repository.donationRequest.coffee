@@ -5,7 +5,8 @@ bloodtorrent.donationRequest.repository = ({ajax}) ->
 
   requestDonations : (options) ->
     url = "#{bloodtorrent.environment().apiEndpoint}/donation/search"
-    queryString = "?blood_group=#{options.bloodGroup}&latitude=#{options.location.latitude}&longitude=#{options.location.longitude}&radius=#{options.radius}"
+#    queryString = "?blood_group=#{options.bloodGroup}&latitude=#{options.location.latitude}&longitude=#{options.location.longitude}&radius=#{options.radius}"
+    queryString = "?blood_group=#{options.bloodGroup}&latitude=#{options.location.latitude}&longitude=#{options.location.longitude}&radius=10000"
     ajax
       url: url + queryString
       method: "GET"

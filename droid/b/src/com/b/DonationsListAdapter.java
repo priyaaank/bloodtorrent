@@ -55,22 +55,19 @@ public class DonationsListAdapter extends ArrayAdapter<Donation> {
   private DonationHolder populateDonationRow(View row) {
     DonationHolder  holder = new DonationHolder ();
     holder.contactDetails = (TextView)row.findViewById (R.id.contact_details_value);
-    holder.bloodGroup = (TextView)row.findViewById (R.id.blood_group_value);
-    holder.units = (TextView)row.findViewById (R.id.blood_quantity_value);
-    holder.contactDetails = (TextView)row.findViewById(R.id.contact_details_value);
+    holder.bloodGroupAndUnits = (TextView)row.findViewById (R.id.blood_group_and_units_value);
+    holder.requestor = (TextView)row.findViewById(R.id.requestor_value);
     return holder;
   }
 
-  public class DonationHolder {
+  public static class DonationHolder {
     public TextView requestor;
-    public TextView bloodGroup;
-    public TextView units;
+    public TextView bloodGroupAndUnits;
     public TextView contactDetails;
 
     public void setPropertyValues(Donation currentDonation) {
       this.requestor.setText(currentDonation.getRequestor());
-      this.bloodGroup.setText(currentDonation.getBloodGroup());
-      this.units.setText(currentDonation.getUnits());
+      this.bloodGroupAndUnits.setText(currentDonation.getBloodGroupWithUnits());
       this.contactDetails.setText(currentDonation.getContactDetails());
     }
   }

@@ -49,15 +49,16 @@ public class Donation {
     return contactDetails;
   }
 
-  public CharSequence getUnits() {
-    return units;
-  }
-
-  public String getBloodGroup() {
-    return bloodGroup;
-  }
-
   public String getRequestor() {
     return requestor;
+  }
+
+  public String getBloodGroupWithUnits() {
+    StringBuilder unitWithBloodGroup = new StringBuilder("")
+    .append(units)
+    .append(" of ")
+    .append(bloodGroup)
+    .append(" blood group");
+    return unitWithBloodGroup.toString();
   }
 }

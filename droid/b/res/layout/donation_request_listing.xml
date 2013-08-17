@@ -9,7 +9,7 @@
             android:id="@+id/map_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="33" />
+            android:layout_weight="20" />
     <TextView
             android:id="@+id/list_toggle_button"
             android:layout_width="match_parent"
@@ -22,5 +22,5 @@
             android:layout_height="0dp"
             android:background="#000000"
             android:orientation="vertical"
-            android:layout_weight="7" />
+            android:layout_weight="20" />
 </LinearLayout>

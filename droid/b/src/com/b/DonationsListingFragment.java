@@ -32,10 +32,11 @@ public class DonationsListingFragment extends ListFragment implements DonationsU
 
   @Override
   public void updatedDonationsList(List<Donation> donations) {
-
+    ((DonationsListAdapter)this.getListAdapter()).updateData(donations);
   }
 
   private void initializeList() {
+    this.setListAdapter(new DonationsListAdapter(this.getActivity().getApplicationContext(), R.layout.donation_list_row));
 
   }
 }
