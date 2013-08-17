@@ -9,6 +9,6 @@ bloodtorrent.launcher.launch = () ->
 
   initialize = () ->
     calatrava.preferences.retrieve "firstTimeSetup", (isSetupComplete) ->
-      if isSetupComplete then startApp() else runThroughInitialSetup()
+      if isSetupComplete == "Done" then startApp() else runThroughInitialSetup()
 
   initialize()

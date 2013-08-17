@@ -16,7 +16,7 @@ public class AppPreferences {
   }
 
   public String retrieve(String key) {
-    return applicationPreferences.getString(key, "");
+    return applicationPreferences.getString(key, null);
   }
 
 }

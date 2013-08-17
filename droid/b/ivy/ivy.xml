@@ -1,9 +1,9 @@
 <ivy-module version="2.0">
-  <info organisation="com.example" module="currency-converter" revision="0.1" />
+  <info organisation="com.b" module="bloodtorrent" revision="0.1" />
   <dependencies>
     <!-- Calatrava dependencies -->
     <dependency org="org.mozilla" name="rhino" rev="1.7R4" conf="*->*,!sources,!javadoc" />
     <dependency org="org.codehaus.jackson" name="jackson-mapper-asl" rev="1.9.8"/>
-    <dependency org="org.apache.commons" name="commons-lang3" rev="3.1"/>
+    <dependency org="com.google.android" name="support-v4" rev="r6" transitive="false" conf="*->*,!sources,!javadoc"/>
   </dependencies>
 </ivy-module>

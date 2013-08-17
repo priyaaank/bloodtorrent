@@ -109,7 +109,7 @@ public class UserSetupActivity extends RegisteredActivity {
   }
 
   private boolean valueIsValid(String valueToValidate) {
-    return (valueToValidate != null && valueToValidate.trim().length() > 0);
+    return (valueToValidate != null && valueToValidate.trim().length() > 0 && !valueToValidate.equalsIgnoreCase("null"));
 
   }
 }

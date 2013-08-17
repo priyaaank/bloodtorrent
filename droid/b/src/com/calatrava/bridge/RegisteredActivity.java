@@ -1,12 +1,14 @@
 package com.calatrava.bridge;
 
-import android.app.Activity;
-import android.content.*;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.IBinder;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
-public abstract class RegisteredActivity extends Activity {
+public abstract class RegisteredActivity extends FragmentActivity {
   private String TAG = RegisteredActivity.class.getSimpleName();
   private RhinoService rhino;
 
