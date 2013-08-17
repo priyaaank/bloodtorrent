@@ -3,12 +3,24 @@ bloodtorrent.donationRequest ?= {}
 
 bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
 
+  selectedLocation =
+    latitude: null
+    longitude: null
+
   showDonationListing = () ->
     requestDonations()
 
   showNewDonationPage = () ->
     changePage("newDonationRequest")
     bindCreateDonationView()
+
+  showLocationCapturePage = () ->
+    changePage("captureLocation")
+    bindCaptureLocationPage()
+
+  updateLocationForDonation = (latitude, longitude) ->
+    selectedLocation.latitude = latitude
+    selectedLocation.longitude = longitude
 
   successCallback = (successResponse) ->
     views.donationRequestListingPage.render
@@ -35,8 +47,12 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
 
       repositories.donationsRepository.requestDonations(options)
 
+  bindCaptureLocationPage = () ->
+    views.captureLocationPage.bind "updateLocationForDonation", updateLocationForDonation
+
   bindCreateDonationView = () ->
     views.newDonationRequestPage.bind "submitDonationRequest", validateAndCreateDonationRequest
+    views.newDonationRequestPage.bind "showLocationCapturePage", showLocationCapturePage
 
   createNewRequest = (donationRequest) ->
     repositories.donationsRepository.createDonation({donationRequest, onDonationCreateSuccess, onDonationCreateFailure})
@@ -61,7 +77,8 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     views.newDonationRequestPage.get "contactDetails", (contactDetailsFromView) -> contactDetails = contactDetailsFromView
     calatrava.preferences.retrieve "userName", (requestorNickName) ->
       requestor = requestorNickName
-      donationRequest = new bloodtorrent.models.donationRequest({bloodGroup, units, contactDetails, requestor})
+      location = selectedLocation
+      donationRequest = new bloodtorrent.models.donationRequest({bloodGroup, units, location, contactDetails, requestor})
       errors = donationRequest.errors unless donationRequest.isValid()
       if _.isEmpty(errors) then createNewRequest(donationRequest) else renderErrors()
 

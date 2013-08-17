@@ -16,7 +16,6 @@ public class Donation {
   private double longitude;
   private long quantity;
   private String requestor;
-  private CharSequence units;
 
   public Donation(String id, String bloodGroup, String contactDetails, double latitude, double longitude, long quantity, String requestor) {
     this.id = id;
@@ -55,7 +54,7 @@ public class Donation {
 
   public String getBloodGroupWithUnits() {
     StringBuilder unitWithBloodGroup = new StringBuilder("")
-    .append(units)
+    .append(quantity)
     .append(" of ")
     .append(bloodGroup)
     .append(" blood group");

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/map_layout_container"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <Button android:id="@+id/set_location_button"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:text="Set Location"
+              android:layout_alignParentBottom="true"
+              android:onClick="returnSelectedLocation"/>
+
+    <FrameLayout
+            android:id="@+id/map_for_location_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_above="@id/set_location_button"/>
+
+</RelativeLayout>

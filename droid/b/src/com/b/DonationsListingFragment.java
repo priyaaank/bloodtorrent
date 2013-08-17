@@ -42,6 +42,5 @@ public class DonationsListingFragment extends ListFragment implements DonationsU
 
   private void initializeList() {
     this.setListAdapter(new DonationsListAdapter(this.getActivity().getApplicationContext(), R.layout.donation_list_row));
-
   }
 }

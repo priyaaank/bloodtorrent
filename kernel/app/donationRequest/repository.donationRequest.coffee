@@ -24,8 +24,8 @@ bloodtorrent.donationRequest.repository = ({ajax}) ->
       contentType: "application/json"
       body:
         blood_group     : options.donationRequest.bloodGroup
-        latitude        : "12.11"
-        longitude       : "11.11"
+        latitude        : options.donationRequest.location.latitude
+        longitude       : options.donationRequest.location.longitude
         quantity        : options.donationRequest.units
         requestor       : options.donationRequest.requestor || "unknown"
         contact_details : options.donationRequest.contactDetails
