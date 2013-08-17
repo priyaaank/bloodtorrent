@@ -1,5 +1,6 @@
 package com.b;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +28,7 @@ public class DonationsListAdapter extends ArrayAdapter<Donation> {
       this.add(donation);
     }
 
-    this.setNotifyOnChange(true);
+    this.notifyDataSetChanged();
   }
 
   @Override

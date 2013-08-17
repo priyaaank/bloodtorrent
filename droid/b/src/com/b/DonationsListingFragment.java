@@ -31,8 +31,13 @@ public class DonationsListingFragment extends ListFragment implements DonationsU
   }
 
   @Override
-  public void updatedDonationsList(List<Donation> donations) {
-    ((DonationsListAdapter)this.getListAdapter()).updateData(donations);
+  public void updatedDonationsList(final List<Donation> donations) {
+    this.getActivity().runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        ((DonationsListAdapter)DonationsListingFragment.this.getListAdapter()).updateData(donations);
+      }
+    });
   }
 
   private void initializeList() {

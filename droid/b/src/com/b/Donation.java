@@ -9,7 +9,7 @@ public class Donation {
 
   private static final String TAG = Donation.class.getCanonicalName();
 
-  private int id;
+  private String id;
   private String bloodGroup;
   private String contactDetails;
   private double latitude;
@@ -18,7 +18,7 @@ public class Donation {
   private String requestor;
   private CharSequence units;
 
-  public Donation(int id, String bloodGroup, String contactDetails, double latitude, double longitude, long quantity, String requestor) {
+  public Donation(String id, String bloodGroup, String contactDetails, double latitude, double longitude, long quantity, String requestor) {
     this.id = id;
     this.bloodGroup = bloodGroup;
     this.contactDetails = contactDetails;
@@ -36,7 +36,7 @@ public class Donation {
       JSONArray location = object.getJSONArray("coordinates");
       float lat = Float.valueOf(location.get(0).toString());
       float lng = Float.valueOf(location.get(1).toString());
-      donation = new Donation(object.getInt("_id"), object.getString("blood_group"), object.getString("contact_details"),
+      donation = new Donation(object.getString("_id"), object.getString("blood_group"), object.getString("contact_details"),
                               lat, lng, object.getLong("quantity"), object.getString("requestor") );
     } catch (JSONException e) {
       Log.d(TAG, e.getMessage());

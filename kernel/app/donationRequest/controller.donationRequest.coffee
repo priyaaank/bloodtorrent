@@ -4,7 +4,6 @@ bloodtorrent.donationRequest ?= {}
 bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
 
   showDonationListing = () ->
-    changePage("donationRequestListing")
     requestDonations()
 
   showNewDonationPage = () ->
@@ -22,17 +21,19 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     lookupRadius = null
     lookupBloodGroup = null
     calatrava.preferences.retrieve "notificationRadius", (radius) -> lookupRadius = radius
-    calatrava.preferences.retrieve "bloodGroup", (bloodgroup) -> lookupBloodGroup = bloodgroup
-    options =
-      successCallback: successCallback
-      failureCallback: failureCallback
-      bloodGroup: lookupBloodGroup
-      location:
-        latitude: 18.5236
-        longitude: 73.8478
-      radius: lookupRadius
+    calatrava.preferences.retrieve "bloodGroup", (bloodgroup) ->
+      lookupBloodGroup = bloodgroup
+      changePage("donationRequestListing")
+      options =
+        successCallback: successCallback
+        failureCallback: failureCallback
+        bloodGroup: lookupBloodGroup
+        location:
+          latitude: 18.5236
+          longitude: 73.8478
+        radius: lookupRadius
 
-    repositories.donationsRepository.requestDonations(options)
+      repositories.donationsRepository.requestDonations(options)
 
   bindCreateDonationView = () ->
     views.newDonationRequestPage.bind "submitDonationRequest", validateAndCreateDonationRequest
