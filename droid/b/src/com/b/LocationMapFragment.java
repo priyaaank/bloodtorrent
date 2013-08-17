@@ -31,7 +31,7 @@ public class LocationMapFragment extends SupportMapFragment {
     UiSettings mapUiSettings = this.getMap().getUiSettings();
     mapUiSettings.setCompassEnabled(true);
     mapUiSettings.setMyLocationButtonEnabled(true);
-    mapUiSettings.setZoomControlsEnabled(true);
+    mapUiSettings.setZoomControlsEnabled(false);
     mapUiSettings.setScrollGesturesEnabled(true);
     mapUiSettings.setTiltGesturesEnabled(true);
   }

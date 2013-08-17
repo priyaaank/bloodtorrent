@@ -5,19 +5,34 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <Button android:id="@+id/set_location_button"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="center"
-              android:text="Set Location"
-              android:layout_alignParentBottom="true"
-              android:onClick="returnSelectedLocation"/>
+    <RelativeLayout android:layout_height="match_parent"
+                    android:layout_width="match_parent">
+        <FrameLayout
+                android:id="@+id/map_for_location_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FF34DE"/>
 
-    <FrameLayout
-            android:id="@+id/map_for_location_container"
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+            <ImageView
+                    android:id="@+id/map_location_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/location" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <Button android:id="@+id/set_location_button"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_above="@id/set_location_button"/>
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Set Location"
+            android:layout_alignParentBottom="true"
+            android:onClick="returnSelectedLocation"/>
 
 </RelativeLayout>
