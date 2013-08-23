@@ -5,10 +5,16 @@ import android.view.View;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
 
 public class DonationsMapFragment extends SupportMapFragment implements DonationsUpdateObserver {
+
+  private BitmapDescriptor bitmapImage;
 
   public static DonationsMapFragment newInstance() {
     return new DonationsMapFragment();
@@ -17,6 +23,7 @@ public class DonationsMapFragment extends SupportMapFragment implements Donation
   @Override
   public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
+    bitmapImage = BitmapDescriptorFactory.fromResource(R.drawable.blip);
     initializeMap();
   }
 
@@ -51,6 +58,17 @@ public class DonationsMapFragment extends SupportMapFragment implements Donation
 
   @Override
   public void updatedDonationsList(List<Donation> donations) {
+    this.getMap().clear();
+    for(Donation donation : donations) {
+      this.getMap().addMarker(markerOptionsFor(donation));
+    }
+  }
 
+  private MarkerOptions markerOptionsFor(Donation donation) {
+    MarkerOptions donationMarker = new MarkerOptions();
+    donationMarker.position(new LatLng(donation.getLatitude(), donation.getLongitude()));
+    donationMarker.title(donation.getContactDetails());
+    donationMarker.icon(bitmapImage);
+    return  donationMarker;
   }
 }

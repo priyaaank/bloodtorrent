@@ -60,4 +60,12 @@ public class Donation {
     .append(" blood group");
     return unitWithBloodGroup.toString();
   }
+
+  public double getLatitude() {
+    return latitude;
+  }
+
+  public double getLongitude() {
+    return longitude;
+  }
 }

@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -81,9 +83,15 @@ public class DonationRequestListingActivity extends RegisteredActivity {
     final List<Donation> donationList = donationsListFromJsonObject(jsonObjectWithDonations);
 
     if(donationList.size() == 0) return;
-    for(DonationsUpdateObserver observer : observers) {
-      observer.updatedDonationsList(donationList);
+    for(final DonationsUpdateObserver observer : observers) {
+      this.runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+          observer.updatedDonationsList(donationList);
+        }
+      });
     }
+
     this.runOnUiThread(new Runnable() {
       @Override
       public void run() {
