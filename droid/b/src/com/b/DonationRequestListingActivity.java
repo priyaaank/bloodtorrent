@@ -20,10 +20,9 @@ public class DonationRequestListingActivity extends RegisteredActivity {
   private static final String TAG = DonationRequestListingActivity.class.getCanonicalName();
   private static final String MAP_FRAGMENT = "map_fragment";
   private static final String DONATIONS = "donations";
-//  private static final String LIST_FRAGMENT = "list_fragment";
+  private static final int VIEW_PAGER_ID = 66;
 
   private DonationsMapFragment mapFragment;
-//  private DonationsListingFragment listFragment;
   private ViewPager viewPagerList;
   private DonationViewPagerAdapter viewPagerAdapter;
   private List<DonationsUpdateObserver> observers = new ArrayList<DonationsUpdateObserver>();
@@ -34,14 +33,13 @@ public class DonationRequestListingActivity extends RegisteredActivity {
     setContentView(R.layout.donation_request_listing);
 
     attachMapFragment();
-//    attachListFragment();
     attachViewPagerFragment();
-
   }
 
   private void attachViewPagerFragment() {
     FrameLayout pagerContainer = (FrameLayout) this.findViewById(R.id.listing_container);
     viewPagerList = new ViewPager(this);
+    viewPagerList.setId(VIEW_PAGER_ID);
     viewPagerList.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     viewPagerAdapter = new DonationViewPagerAdapter(this.getSupportFragmentManager());
     viewPagerList.setAdapter(viewPagerAdapter);
@@ -80,13 +78,18 @@ public class DonationRequestListingActivity extends RegisteredActivity {
   }
 
   private void notifySubscribersOfNewListing(JSONObject jsonObjectWithDonations) {
-    List<Donation> donationList = donationsListFromJsonObject(jsonObjectWithDonations);
+    final List<Donation> donationList = donationsListFromJsonObject(jsonObjectWithDonations);
 
     if(donationList.size() == 0) return;
     for(DonationsUpdateObserver observer : observers) {
       observer.updatedDonationsList(donationList);
     }
-    viewPagerAdapter.updateList(donationList);
+    this.runOnUiThread(new Runnable() {
+      @Override
+      public void run() {
+        viewPagerAdapter.updateList(donationList);
+      }
+    });
   }
 
   private List<Donation> donationsListFromJsonObject(JSONObject jsonObjectWithDonations) {
@@ -101,15 +104,6 @@ public class DonationRequestListingActivity extends RegisteredActivity {
     }
     return donationList;
   }
-
-//  private void attachListFragment() {
-//    listFragment = (DonationsListingFragment) getSupportFragmentManager().findFragmentById(R.id.listing_container);
-//    if(listFragment == null)
-//    {
-//      listFragment = DonationsListingFragment.newInstance();
-//      this.getSupportFragmentManager().beginTransaction().add(R.id.listing_container, listFragment, LIST_FRAGMENT).commit();
-//    }
-//  }
 
   private void attachMapFragment() {
     mapFragment = (DonationsMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_container);
