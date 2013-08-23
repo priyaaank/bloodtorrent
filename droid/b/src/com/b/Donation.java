@@ -33,8 +33,8 @@ public class Donation {
 
     try {
       JSONArray location = object.getJSONArray("coordinates");
-      float lat = Float.valueOf(location.get(0).toString());
-      float lng = Float.valueOf(location.get(1).toString());
+      float lng = Float.valueOf(location.get(0).toString());
+      float lat = Float.valueOf(location.get(1).toString());
       donation = new Donation(object.getString("_id"), object.getString("blood_group"), object.getString("contact_details"),
                               lat, lng, object.getLong("quantity"), object.getString("requestor") );
     } catch (JSONException e) {
@@ -55,6 +55,7 @@ public class Donation {
   public String getBloodGroupWithUnits() {
     StringBuilder unitWithBloodGroup = new StringBuilder("")
     .append(quantity)
+    .append(" units ")
     .append(" of ")
     .append(bloodGroup)
     .append(" blood group");
