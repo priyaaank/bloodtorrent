@@ -21,13 +21,13 @@ public class DonationsListingFragment extends ListFragment implements DonationsU
   @Override
   public void onResume() {
     super.onResume();
-    ((DonationRequestListingActivity)this.getActivity()).registerObserver(this);
+//    ((DonationRequestListingActivity)this.getActivity()).registerObserver(this);
   }
 
   @Override
   public void onPause() {
     super.onPause();
-    ((DonationRequestListingActivity)this.getActivity()).deregisterObserver(this);
+//    ((DonationRequestListingActivity)this.getActivity()).deregisterObserver(this);
   }
 
   @Override
