@@ -6,17 +6,17 @@ import com.calatrava.bridge.RegisteredActivity;
 
 public class Bootstrap extends RegisteredActivity
 {
+
+  private CalatravaApplication app;
+
   @Override
   public void onCreate(Bundle savedInstanceState)
   {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
 
-    CalatravaApplication app = (CalatravaApplication)getApplication();
+    app = (CalatravaApplication)getApplication();
     app.provideActivityContext(this);
-
-    // And then start your first feature
-    app.launchFlow("bloodtorrent.launcher.launch");
   }
 
   @Override
@@ -32,5 +32,19 @@ public class Bootstrap extends RegisteredActivity
   @Override
   public void render(String json) {
 
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    // And then start your first feature
+    app.launchFlow("bloodtorrent.launcher.launch");
+
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    this.finish();
   }
 }
