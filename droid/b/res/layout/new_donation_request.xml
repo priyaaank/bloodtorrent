@@ -57,7 +57,7 @@
               android:layout_alignParentRight="true"
               android:text="Location"
               android:textColor="#FFFFFF"
-              android:background="@drawable/flat_button_normal"
+              android:background="@drawable/flat_button_normal_blue"
               android:textSize="20sp"
               android:onClick="captureLocation"/>
 
@@ -66,7 +66,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
             android:onClick="createNewDonation"
-            android:background="@drawable/flat_button"
+            android:background="@drawable/flat_button_blue"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:text="Save" />
