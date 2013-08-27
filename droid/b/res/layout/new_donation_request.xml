@@ -27,14 +27,14 @@
               android:hint="Blood Group"
               android:textColorHint="#8992B0"
               android:layout_alignParentRight="true"
-              android:background="@drawable/back"/>
+              android:background="@drawable/edit_text_rounded"/>
 
     <EditText android:id="@+id/blood_quantity_value"
               android:layout_height="50dp"
               android:padding="10dp"
               android:layout_marginTop="10dp"
               android:hint="Quantity"
-              android:background="@drawable/back"
+              android:background="@drawable/edit_text_rounded"
               android:textColorHint="#8992B0"
               android:layout_width="fill_parent"
               android:layout_alignParentRight="true"/>
@@ -44,7 +44,7 @@
               android:padding="10dp"
               android:layout_marginTop="10dp"
               android:textColorHint="#8992B0"
-              android:background="@drawable/back"
+              android:background="@drawable/edit_text_rounded"
               android:layout_width="match_parent"
               android:hint="Contact Details"
               android:layout_alignParentRight="true"
