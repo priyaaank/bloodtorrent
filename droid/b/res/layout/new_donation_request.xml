@@ -3,87 +3,72 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:paddingLeft="20dp"
+              android:paddingRight="20dp"
+              android:background="#394264">
 
-    <RelativeLayout android:id="@+id/blood_group_section"
-                    android:layout_height="wrap_content"
-                    android:layout_width="fill_parent">
+    <TextView android:id="@+id/new_request_title"
+              android:layout_height="50dp"
+              android:padding="10dp"
+              android:gravity="center"
+              android:textSize="25sp"
+              android:textColor="#FFFFFF"
+              android:layout_marginBottom="25dp"
+              android:text="New Request"
+              android:layout_width="fill_parent"
+              android:layout_alignParentRight="true"/>
 
-        <TextView android:id="@+id/blood_group_label"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_alignParentLeft="true"
-                  android:text="Blood Group" />
+    <EditText android:id="@+id/blood_group_value"
+              android:layout_height="50dp"
+              android:padding="10dp"
+              android:layout_width="fill_parent"
+              android:layout_marginTop="10dp"
+              android:hint="Blood Group"
+              android:textColorHint="#8992B0"
+              android:layout_alignParentRight="true"
+              android:background="@drawable/back"/>
 
-        <EditText android:id="@+id/blood_group_value"
-                  android:layout_height="wrap_content"
-                  android:layout_width="wrap_content"
-                  android:layout_toRightOf="@id/blood_group_label"
-                  android:layout_alignParentRight="true"/>
+    <EditText android:id="@+id/blood_quantity_value"
+              android:layout_height="50dp"
+              android:padding="10dp"
+              android:layout_marginTop="10dp"
+              android:hint="Quantity"
+              android:background="@drawable/back"
+              android:textColorHint="#8992B0"
+              android:layout_width="fill_parent"
+              android:layout_alignParentRight="true"/>
 
-    </RelativeLayout>
+    <EditText android:id="@+id/contact_details_value"
+              android:layout_height="100dp"
+              android:padding="10dp"
+              android:layout_marginTop="10dp"
+              android:textColorHint="#8992B0"
+              android:background="@drawable/back"
+              android:layout_width="match_parent"
+              android:hint="Contact Details"
+              android:layout_alignParentRight="true"
+              android:minLines="3"/>
 
-    <RelativeLayout android:id="@+id/blood_quantity_section"
-                    android:layout_height="wrap_content"
-                    android:layout_width="fill_parent">
-
-        <TextView android:id="@+id/blood_quantity_label"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_alignParentLeft="true"
-                  android:text="Quantity" />
-
-        <EditText android:id="@+id/blood_quantity_value"
-                  android:layout_height="wrap_content"
-                  android:layout_width="wrap_content"
-                  android:layout_toRightOf="@id/blood_quantity_label"
-                  android:layout_alignParentRight="true"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout android:id="@+id/contact_details_section"
-                    android:layout_height="wrap_content"
-                    android:layout_width="fill_parent">
-
-        <TextView android:id="@+id/contact_details_label"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_alignParentLeft="true"
-                  android:text="Contact Details" />
-
-        <EditText android:id="@+id/contact_details_value"
-                  android:layout_height="wrap_content"
-                  android:layout_width="wrap_content"
-                  android:layout_toRightOf="@id/contact_details_label"
-                  android:layout_alignParentRight="true"
-                  android:minLines="3"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout android:id="@+id/location_section"
-                    android:layout_height="wrap_content"
-                    android:layout_width="fill_parent">
-
-        <TextView android:id="@+id/location_label"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_alignParentLeft="true"
-                  android:text="Location" />
-
-        <Button android:id="@+id/location_value"
-                  android:layout_height="wrap_content"
-                  android:layout_width="wrap_content"
-                  android:layout_toRightOf="@id/location_label"
-                  android:layout_alignParentRight="true"
-                  android:text="Location"
-                  android:onClick="captureLocation"/>
-
-    </RelativeLayout>
+    <Button android:id="@+id/location_value"
+              android:layout_marginTop="10dp"
+              android:layout_height="50dp"
+              android:layout_width="match_parent"
+              android:layout_alignParentRight="true"
+              android:text="Location"
+              android:textColor="#FFFFFF"
+              android:background="@drawable/flat_button_normal"
+              android:textSize="20sp"
+              android:onClick="captureLocation"/>
 
     <Button android:id="@+id/save_new_donation_request"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="40dp"
             android:onClick="createNewDonation"
+            android:background="@drawable/flat_button"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
             android:text="Save" />
 
 </LinearLayout>
