@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
 import com.google.android.gms.maps.model.LatLng;
@@ -44,13 +45,17 @@ public class NewDonationRequestActivity extends RegisteredActivity {
     super.onCreate(savedInstance);
     setContentView(R.layout.new_donation_request);
     initializeBloodGroupPicker();
+    initializeBloodUnitsSelector();
+  }
+
+  private void initializeBloodUnitsSelector() {
+    NumberPicker bloodGroupUnitsPicker = (NumberPicker) this.findViewById(R.id.blood_quantity_value);
+    bloodGroupUnitsPicker.setMinValue(1);
+    bloodGroupUnitsPicker.setMaxValue(20);
+    bloodGroupUnitsPicker.setDescendantFocusability(TimePicker.FOCUS_BLOCK_DESCENDANTS);
   }
 
   private void initializeBloodGroupPicker() {
-//    NumberPicker bloodGroupPicker = (NumberPicker) this.findViewById(R.id.blood_group_value);
-//    bloodGroupPicker.setMinValue(0);
-//    bloodGroupPicker.setMaxValue(bloodGroups.length-1);
-//    bloodGroupPicker.setDisplayedValues(bloodGroups);
     Spinner bloodGroupSpinner = (Spinner) this.findViewById(R.id.blood_group_value);
     ArrayAdapter<String> bloodGroupAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(bloodGroupList.values()));
     bloodGroupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -66,10 +71,10 @@ public class NewDonationRequestActivity extends RegisteredActivity {
   public String getFieldValue(String field) {
     if("bloodGroup".equalsIgnoreCase(field))
     {
-      return bloodGroupListKeys.get(((Spinner)this.findViewById(R.id.blood_group_value)).getSelectedItemPosition());
+      return bloodGroupListKeys.get(((Spinner) this.findViewById(R.id.blood_group_value)).getSelectedItemPosition());
     } else if("quantity".equalsIgnoreCase(field))
     {
-      return ((EditText)this.findViewById(R.id.blood_quantity_value)).getText().toString();
+      return Integer.toString(((NumberPicker) this.findViewById(R.id.blood_quantity_value)).getValue());
     } else if("contactDetails".equalsIgnoreCase(field))
     {
       return ((EditText)this.findViewById(R.id.contact_details_value)).getText().toString();
