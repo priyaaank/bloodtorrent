@@ -24,7 +24,7 @@
 
     </style>
 
-    <style name="ButtonBlue" parent="@android:style/Widget.EditText">
+    <style name="ButtonBlue" parent="@android:style/Widget.Button">
         <item name="android:layout_height">50dip</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginTop">40dp</item>
