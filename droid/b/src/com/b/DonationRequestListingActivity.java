@@ -59,7 +59,7 @@ public class DonationRequestListingActivity extends RegisteredActivity {
       @Override
       public void onPageSelected(int i) {
         Donation donation = viewPagerAdapter.viewAt(i);
-        mapFragment.centerMapTo(donation.getLatitude(), donation.getLongitude());
+        updateMapForDonation(donation);
       }
 
       @Override
@@ -67,6 +67,10 @@ public class DonationRequestListingActivity extends RegisteredActivity {
         //Do Nothing
       }
     });
+  }
+
+  private void updateMapForDonation(Donation donation) {
+    if(donation != null) mapFragment.centerMapTo(donation.getLatitude(), donation.getLongitude());
   }
 
   @Override
@@ -116,6 +120,8 @@ public class DonationRequestListingActivity extends RegisteredActivity {
     this.runOnUiThread(new Runnable() {
       @Override
       public void run() {
+
+        if(donationList != null && !donationList.isEmpty()) updateMapForDonation(donationList.get(0));
         viewPagerAdapter.updateList(donationList);
       }
     });
