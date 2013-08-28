@@ -3,23 +3,58 @@ package com.b;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
 import com.google.android.gms.maps.model.LatLng;
+import net.simonvt.numberpicker.NumberPicker;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 @CalatravaPage(name = "newDonationRequest")
 public class NewDonationRequestActivity extends RegisteredActivity {
 
-  private static final String UPDATE_LOCATION = "updateLocation";
   private static final String TAG = NewDonationRequestActivity.class.getCanonicalName();
+
+  private final static Map<String, String> bloodGroupList = new LinkedHashMap<String, String>();
+  private static List<String> bloodGroupListKeys;
+
+  static {
+    bloodGroupList.put("a+", "A Positive");
+    bloodGroupList.put("b+", "B Positive");
+    bloodGroupList.put("ab+", "AB Positive");
+    bloodGroupList.put("o+", "O Positive");
+    bloodGroupList.put("a-", "A Negative");
+    bloodGroupList.put("b-", "B Negative");
+    bloodGroupList.put("ab-", "AB Negative");
+    bloodGroupList.put("o-", "O Negative");
+
+    bloodGroupListKeys = new ArrayList<String>(bloodGroupList.keySet());
+  }
 
   @Override
   public void onCreate(Bundle savedInstance) {
     super.onCreate(savedInstance);
     setContentView(R.layout.new_donation_request);
+    initializeBloodGroupPicker();
+  }
+
+  private void initializeBloodGroupPicker() {
+//    NumberPicker bloodGroupPicker = (NumberPicker) this.findViewById(R.id.blood_group_value);
+//    bloodGroupPicker.setMinValue(0);
+//    bloodGroupPicker.setMaxValue(bloodGroups.length-1);
+//    bloodGroupPicker.setDisplayedValues(bloodGroups);
+    Spinner bloodGroupSpinner = (Spinner) this.findViewById(R.id.blood_group_value);
+    ArrayAdapter<String> bloodGroupAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(bloodGroupList.values()));
+    bloodGroupAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    bloodGroupSpinner.setAdapter(bloodGroupAdapter);
   }
 
   @Override
@@ -31,7 +66,7 @@ public class NewDonationRequestActivity extends RegisteredActivity {
   public String getFieldValue(String field) {
     if("bloodGroup".equalsIgnoreCase(field))
     {
-      return ((EditText)this.findViewById(R.id.blood_group_value)).getText().toString();
+      return bloodGroupListKeys.get(((Spinner)this.findViewById(R.id.blood_group_value)).getSelectedItemPosition());
     } else if("quantity".equalsIgnoreCase(field))
     {
       return ((EditText)this.findViewById(R.id.blood_quantity_value)).getText().toString();

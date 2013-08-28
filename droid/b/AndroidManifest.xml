@@ -27,10 +27,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserSetupActivity" android:label="UserSettings"  android:theme="@style/SampleTheme.Light" />
-        <activity android:name=".MenuActivity" android:label="Menu"  android:theme="@style/SampleTheme.Light" />
-        <activity android:name=".NewDonationRequestActivity" android:label="NewDonationRequest"  android:theme="@style/SampleTheme.Light" />
-        <activity android:name=".DonationRequestListingActivity" android:label="DonationRequestListing"  android:theme="@style/SampleTheme.Light" />
-        <activity android:name=".CaptureLocationActivity" android:label="CaptureLocation"  android:theme="@style/SampleTheme.Light" />
+        <activity android:name=".MenuActivity" android:label="Menu" />
+        <activity android:name=".NewDonationRequestActivity" android:label="NewDonationRequest"  />
+        <activity android:name=".DonationRequestListingActivity" android:label="DonationRequestListing"  />
+        <activity android:name=".CaptureLocationActivity" android:label="CaptureLocation" />
 
         <!-- Debug Key for the app -->
         <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDLLBtjhAR1V5QxGxaRcLGEgf-5jkGcnw8" />

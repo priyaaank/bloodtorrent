@@ -19,15 +19,10 @@
               android:layout_width="fill_parent"
               android:layout_alignParentRight="true"/>
 
-    <EditText android:id="@+id/blood_group_value"
-              android:layout_height="50dp"
-              android:padding="10dp"
-              android:layout_width="fill_parent"
-              android:layout_marginTop="10dp"
-              android:hint="Blood Group"
-              android:textColorHint="#8992B0"
-              android:layout_alignParentRight="true"
-              android:background="@drawable/edit_text_rounded"/>
+    <Spinner  android:id="@+id/blood_group_value"
+              android:layout_height="wrap_content"
+              android:background="@drawable/edit_text_rounded"
+              android:layout_width="match_parent"/>
 
     <EditText android:id="@+id/blood_quantity_value"
               android:layout_height="50dp"
@@ -36,6 +31,7 @@
               android:hint="Quantity"
               android:background="@drawable/edit_text_rounded"
               android:textColorHint="#8992B0"
+              android:textColor="#FFFFFF"
               android:layout_width="fill_parent"
               android:layout_alignParentRight="true"/>
 
@@ -47,6 +43,7 @@
               android:background="@drawable/edit_text_rounded"
               android:layout_width="match_parent"
               android:hint="Contact Details"
+              android:textColor="#FFFFFF"
               android:layout_alignParentRight="true"
               android:minLines="3"/>
 
