@@ -19,7 +19,7 @@
     <application android:label="@string/app_name"
                  android:name="B"
                  android:icon="@drawable/ic_launcher"
-                 android:theme="@android:style/Theme.NoTitleBar">
+                 android:theme="@style/CustomTheme">
         <activity android:name=".Bootstrap"
                   android:label="@string/app_name">
             <intent-filter>
@@ -27,9 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserSetupActivity" android:label="UserSettings"  android:theme="@style/SampleTheme.Light" />
+        <activity android:name=".UserSetupActivity" android:label="UserSettings" />
         <activity android:name=".MenuActivity" android:label="Menu" android:launchMode="singleTop" />
-        <activity android:name=".NewDonationRequestActivity" android:label="NewDonationRequest" android:theme="@style/SampleTheme.Light" />
+        <activity android:name=".NewDonationRequestActivity" android:label="NewDonationRequest" />
         <activity android:name=".DonationRequestListingActivity" android:label="DonationRequestListing"  />
         <activity android:name=".CaptureLocationActivity" android:label="CaptureLocation" />
 

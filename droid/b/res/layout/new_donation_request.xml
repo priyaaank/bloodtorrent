@@ -36,13 +36,12 @@
             android:id="@+id/blood_quantity_value"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            style="@style/SampleTheme.Light"
             android:layout_weight="1"/>
 
         <TextView android:id="@+id/quantity_label"
                   android:layout_width="wrap_content"
                   android:layout_height="match_parent"
-                  android:text="Units"
+                  android:text="units"
                   android:layout_marginLeft="5dp"
                   android:textColor="#FFFFFF"
                   android:textSize="20sp"
@@ -57,7 +56,7 @@
         <ImageButton android:id="@+id/location_button"
                    android:layout_height="60dp"
                    android:layout_width="40dp"
-                   android:layout_marginLeft="20dp"
+                   android:layout_marginLeft="30dp"
                    android:background="@drawable/flat_button_pink"
                    android:src="@drawable/capture_location_image"
                    android:layout_weight="1"

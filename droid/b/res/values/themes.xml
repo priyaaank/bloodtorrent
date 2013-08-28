@@ -1,11 +1,15 @@
 <resources>
 
-    <style name="SampleTheme" parent="android:Theme">
-        <item name="numberPickerStyle">@style/NPWidget.Holo.NumberPicker</item>
+    <style name="CustomTheme" parent="android:Theme.NoTitleBar">
+        <item name="numberPickerStyle">@style/NumberPickerTheme</item>
     </style>
 
-    <style name="SampleTheme.Light" parent="android:Theme.Light.NoTitleBar">
-        <item name="numberPickerStyle">@style/NPWidget.Holo.Light.NumberPicker</item>
+    <style name="CustomTheme.Light" parent="android:Theme.Light.NoTitleBar">
+        <item name="numberPickerStyle">@style/NumberPickerTheme</item>
+    </style>
+
+    <style name="NumberPickerTheme" parent="NPWidget.Holo.Light.NumberPicker">
+        <item name="android:keyTextColor">#FFFFFF</item>
     </style>
 
 </resources>
