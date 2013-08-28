@@ -1,10 +1,9 @@
 package com.b;
 
+import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.*;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -14,6 +13,7 @@ import java.util.List;
 
 public class DonationsMapFragment extends SupportMapFragment implements DonationsUpdateObserver {
 
+  private static final float DEFAULT_ZOOM_LEVEL = 15.0f;
   private BitmapDescriptor bitmapImage;
 
   public static DonationsMapFragment newInstance() {
@@ -70,5 +70,12 @@ public class DonationsMapFragment extends SupportMapFragment implements Donation
     donationMarker.title(donation.getContactDetails());
     donationMarker.icon(bitmapImage);
     return  donationMarker;
+  }
+
+  public void centerMapTo(double latitude, double longitude) {
+    if(this.getMap() != null) {
+      CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), DEFAULT_ZOOM_LEVEL);
+      this.getMap().animateCamera(cameraUpdate);
+    }
   }
 }

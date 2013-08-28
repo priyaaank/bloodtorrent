@@ -39,4 +39,7 @@ public class DonationViewPagerAdapter extends FragmentStatePagerAdapter {
     this.notifyDataSetChanged();
   }
 
+  public Donation viewAt(int index) {
+    return donationList.get(index);
+  }
 }

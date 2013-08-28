@@ -46,6 +46,27 @@ public class DonationRequestListingActivity extends RegisteredActivity {
     viewPagerAdapter = new DonationViewPagerAdapter(this.getSupportFragmentManager());
     viewPagerList.setAdapter(viewPagerAdapter);
     pagerContainer.addView(viewPagerList);
+    attachPageChangeListenerToViewPager();
+  }
+
+  private void attachPageChangeListenerToViewPager() {
+    viewPagerList.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+      @Override
+      public void onPageScrolled(int i, float v, int i2) {
+        //Do Nothing
+      }
+
+      @Override
+      public void onPageSelected(int i) {
+        Donation donation = viewPagerAdapter.viewAt(i);
+        mapFragment.centerMapTo(donation.getLatitude(), donation.getLongitude());
+      }
+
+      @Override
+      public void onPageScrollStateChanged(int i) {
+        //Do Nothing
+      }
+    });
   }
 
   @Override

@@ -30,7 +30,6 @@ public class MenuActivity extends RegisteredActivity {
 
     Paint borderPaint = new Paint();
     borderPaint.setColor(0xff50597b);
-//    borderPaint.setShadowLayer(10.0f, 0.0f, 2.0f, 0xFF000000);
 
     //border
     canvas.drawCircle(bitmap.getWidth() / 2, bitmap.getHeight() / 2, (bitmap.getHeight() / 2), borderPaint);
