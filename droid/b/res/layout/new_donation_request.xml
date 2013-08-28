@@ -15,9 +15,8 @@
               android:textSize="25sp"
               android:textColor="#FFFFFF"
               android:layout_marginBottom="25dp"
-              android:text="New Request"
-              android:layout_width="fill_parent"
-              android:layout_alignParentRight="true"/>
+              android:text="Donation Request"
+              android:layout_width="fill_parent"/>
 
     <Spinner  android:id="@+id/blood_group_value"
               android:layout_height="wrap_content"
@@ -43,7 +42,7 @@
                   android:layout_height="match_parent"
                   android:text="units"
                   android:layout_marginLeft="5dp"
-                  android:textColor="#FFFFFF"
+                  android:textColor="#9099B7"
                   android:textSize="20sp"
                   android:gravity="center_vertical"
                   android:layout_weight="1"/>
@@ -66,24 +65,13 @@
 
     <EditText android:id="@+id/contact_details_value"
               android:layout_height="100dp"
-              android:padding="10dp"
-              android:layout_marginTop="30dp"
-              android:textColorHint="#8992B0"
-              android:background="@drawable/edit_text_rounded"
-              android:layout_width="match_parent"
               android:hint="Contact Details"
-              android:textColor="#FFFFFF"
-              android:layout_alignParentRight="true"
-              android:minLines="3"/>
+              android:minLines="3"
+              style="@style/EditTextRounded"/>
 
     <Button android:id="@+id/save_new_donation_request"
-            android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
             android:onClick="createNewDonation"
-            android:background="@drawable/flat_button_blue"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            style="@style/ButtonBlue"
             android:text="Save" />
 
 </LinearLayout>

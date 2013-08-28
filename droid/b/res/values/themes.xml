@@ -12,4 +12,26 @@
         <item name="android:keyTextColor">#FFFFFF</item>
     </style>
 
+    <style name="EditTextRounded" parent="@android:style/Widget.EditText">
+        <item name="android:layout_height">50dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColorHint">#8992B0</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">@drawable/edit_text_rounded</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginTop">30dp</item>
+
+    </style>
+
+    <style name="ButtonBlue" parent="@android:style/Widget.EditText">
+        <item name="android:layout_height">50dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@drawable/flat_button_blue</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

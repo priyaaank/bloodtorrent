@@ -55,7 +55,7 @@ public class UserSetupActivity extends RegisteredActivity {
   private void initalizeNumberPicker() {
     NumberPicker numberPicker = (NumberPicker)this.findViewById(R.id.user_radius_value);
     numberPicker.setMinValue(1);
-    numberPicker.setMaxValue(100);
+    numberPicker.setMaxValue(300);
   }
 
   public void savePreferences(View saveButton)
