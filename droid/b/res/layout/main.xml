@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#394264"
+    android:gravity="center"
     >
-<TextView
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:text="Hello World, B"
-    />
-</LinearLayout>
+    <ImageView
+        android:id="@+id/heart_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/heart"
+        />
+
+    <TextView android:id="@+id/welcome_message_text"
+              android:layout_height="wrap_content"
+              android:layout_width="match_parent"
+              android:layout_marginTop="20dp"
+              android:text="Donate Blood. Save Lives."
+              android:textColor="#8992B0"
+              android:textSize="18sp"
+              android:gravity="center"
+              android:layout_below="@id/heart_container"/>
+</RelativeLayout>
 
