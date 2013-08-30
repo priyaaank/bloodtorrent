@@ -78,6 +78,7 @@ public class PageRegistry {
     Class activityClass = pageFactories.get(target);
     Log.d(TAG, "Activity to be started: " + activityClass.getSimpleName());
     activityContext.startActivity(new Intent(activityContext, activityClass));
+    ((RegisteredActivity)activityContext).applyAnimations();
   }
 
   public void triggerEvent(String pageName, String event, String... extraArgs) {

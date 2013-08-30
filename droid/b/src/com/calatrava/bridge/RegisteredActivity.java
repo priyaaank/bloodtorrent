@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import com.b.R;
 
 public abstract class RegisteredActivity extends FragmentActivity {
   private String TAG = RegisteredActivity.class.getSimpleName();
@@ -96,5 +97,9 @@ public abstract class RegisteredActivity extends FragmentActivity {
   public RhinoService getRhino()
   {
     return rhino;
+  }
+
+  public void applyAnimations() {
+    overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
   }
 }
