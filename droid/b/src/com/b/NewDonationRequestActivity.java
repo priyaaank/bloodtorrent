@@ -1,7 +1,6 @@
 package com.b;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -9,10 +8,7 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
-import com.google.android.gms.maps.model.LatLng;
 import net.simonvt.numberpicker.NumberPicker;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

@@ -3,46 +3,79 @@
               android:layout_height="wrap_content"
               android:layout_width="match_parent"
               android:orientation="horizontal"
+              android:background="#394264"
               android:weightSum="5">
     <TextView
-            android:id="@+id/distance_value"
+            android:id="@+id/blood_group_label"
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:gravity="center"
             android:padding="5dip"
-            android:text="500m"
-            android:layout_weight="1.2" />
+            android:textColor="#CCCCCC"
+            android:textSize="25sp"
+            android:layout_marginLeft="5dp"
+            android:text="A+"
+            android:layout_weight="1" />
+
     <LinearLayout
             android:id="@+id/details_container"
             android:layout_height="match_parent"
             android:layout_width="0dp"
             android:layout_weight="3"
             android:gravity="center"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical">
-        <TextView
-                android:id="@+id/requestor_value"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:gravity="center_vertical" />
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="5dp">
+
+            <TextView android:id="@+id/units_of_blood_value"
+                      android:layout_height="match_parent"
+                      android:layout_width="wrap_content"
+                      android:gravity="center_vertical"
+                      android:textColor="#CCCCCC"
+                      android:textSize="18sp"/>
+
+            <TextView
+                    android:id="@+id/units_static_text"
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:textColor="#8992B0"
+                    android:layout_marginLeft="10dp"
+                    android:text="units of blood"
+                    android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+
         <TextView
                 android:id="@+id/contact_details_value"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:gravity="center_vertical" />
+                android:gravity="center_vertical"
+                android:textSize="15sp"
+                android:layout_marginTop="5dp"/>
+
         <TextView
-                android:id="@+id/blood_group_and_units_value"
+                android:id="@+id/requestor_value"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:gravity="center_vertical" />
+                android:gravity="center_vertical"
+                android:textSize="14sp"
+                android:textColor="#8992B0"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"/>
     </LinearLayout>
     <ImageView
             android:id="@+id/navigation_image"
             android:layout_height="match_parent"
             android:layout_width="0dp"
-            android:layout_weight=".8"
-            android:src="@drawable/navigation"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/navigation_button"
             android:clickable="true"
             android:onClick="Navigate"
             android:padding="3dip" />

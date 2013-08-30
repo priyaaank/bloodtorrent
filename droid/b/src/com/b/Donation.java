@@ -5,9 +5,27 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Donation {
 
   private static final String TAG = Donation.class.getCanonicalName();
+
+  public static Map<String, String> bloodGroupMapping = new HashMap<String, String>();
+
+  static {
+    bloodGroupMapping.put("apositive", "A+");
+    bloodGroupMapping.put("bpositive", "B+");
+    bloodGroupMapping.put("abpositive", "AB+");
+    bloodGroupMapping.put("opositive", "O+");
+    bloodGroupMapping.put("anegative", "A-");
+    bloodGroupMapping.put("bnegative", "B-");
+    bloodGroupMapping.put("abnegative", "AB-");
+    bloodGroupMapping.put("onegative", "O-");
+  }
 
   private String id;
   private String bloodGroup;
@@ -52,14 +70,8 @@ public class Donation {
     return requestor;
   }
 
-  public String getBloodGroupWithUnits() {
-    StringBuilder unitWithBloodGroup = new StringBuilder("")
-    .append(quantity)
-    .append(" units ")
-    .append(" of ")
-    .append(bloodGroup)
-    .append(" blood group");
-    return unitWithBloodGroup.toString();
+  public String getBloodGroup() {
+    return bloodGroup;
   }
 
   public double getLatitude() {
@@ -68,5 +80,9 @@ public class Donation {
 
   public double getLongitude() {
     return longitude;
+  }
+
+  public long getUnits() {
+    return quantity;
   }
 }

@@ -3,6 +3,7 @@ package com.b;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.calatrava.CalatravaPage;
@@ -102,6 +103,10 @@ public class DonationRequestListingActivity extends RegisteredActivity {
 
   public void deregisterObserver(DonationsUpdateObserver observer) {
     if(observers.contains(observer)) observers.remove(observer);
+  }
+
+  public void Navigate(View navigateButton) {
+    //do nothing
   }
 
   private void notifySubscribersOfNewListing(JSONObject jsonObjectWithDonations) {

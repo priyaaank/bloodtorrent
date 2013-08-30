@@ -22,14 +22,14 @@ public class UserSetupActivity extends RegisteredActivity {
   final static String TAG = UserSetupActivity.class.getCanonicalName();
 
   static {
-    bloodGroupList.put("opositive", "O Positive");
     bloodGroupList.put("apositive", "A Positive");
     bloodGroupList.put("bpositive", "B Positive");
     bloodGroupList.put("abpositive", "AB Positive");
-    bloodGroupList.put("onegative", "O Negative");
+    bloodGroupList.put("opositive", "O Positive");
     bloodGroupList.put("anegative", "A Negative");
     bloodGroupList.put("bnegative", "B Negative");
     bloodGroupList.put("abnegative", "AB Negative");
+    bloodGroupList.put("onegative", "O Negative");
 
     bloodGroupListKeys = new ArrayList<String>(bloodGroupList.keySet());
   }
