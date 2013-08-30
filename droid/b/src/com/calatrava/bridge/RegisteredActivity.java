@@ -99,7 +99,16 @@ public abstract class RegisteredActivity extends FragmentActivity {
     return rhino;
   }
 
-  public void applyAnimations() {
-    overridePendingTransition(R.anim.push_right_in, R.anim.push_right_out);
+  protected int exitAnimation() {
+    return R.anim.push_right_out;
   }
+
+  protected int entryAnimation() {
+    return R.anim.push_right_in;
+  }
+
+  public void applyAnimations() {
+    overridePendingTransition(entryAnimation(), exitAnimation());
+  }
+
 }

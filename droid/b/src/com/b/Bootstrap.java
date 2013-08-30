@@ -61,6 +61,7 @@ public class Bootstrap extends RegisteredActivity
   @Override
   protected void onPause() {
     super.onPause();
-    this.finish();
+    Bootstrap.this.finish();
   }
+
 }

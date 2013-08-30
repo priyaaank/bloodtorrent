@@ -8,6 +8,21 @@
               android:background="#394264"
               android:gravity="center_horizontal"
               android:weightSum="4">
+    <LinearLayout  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="right"
+            android:layout_marginRight="5dp">
+
+        <Button android:layout_height="30dp"
+                android:layout_width="30dp"
+                android:gravity="center"
+                android:text="i"
+                android:textColor="#8992B0"
+                android:textSize="20sp"
+                android:background="@drawable/small_round_button"
+                android:onClick="initiateSettingsFlow"/>
+
+    </LinearLayout>
 
     <RelativeLayout android:id="@+id/ss"
                     android:layout_height="wrap_content"
