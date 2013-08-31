@@ -63,4 +63,13 @@ public class Bootstrap extends RegisteredActivity
     super.onPause();
   }
 
+  @Override
+  protected int entryAnimation() {
+    return DEFAULT_ANIMATION;
+  }
+
+  @Override
+  protected int exitAnimation() {
+    return DEFAULT_ANIMATION;
+  }
 }

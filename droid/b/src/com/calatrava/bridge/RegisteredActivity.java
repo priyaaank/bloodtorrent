@@ -10,6 +10,7 @@ import android.util.Log;
 import com.b.R;
 
 public abstract class RegisteredActivity extends FragmentActivity {
+  protected static final int DEFAULT_ANIMATION = 0;
   private String TAG = RegisteredActivity.class.getSimpleName();
   private RhinoService rhino;
 
@@ -108,7 +109,10 @@ public abstract class RegisteredActivity extends FragmentActivity {
   }
 
   public void applyAnimations() {
-    overridePendingTransition(entryAnimation(), exitAnimation());
+    int enterAnim = entryAnimation();
+    int exitAnim = exitAnimation();
+    if(enterAnim != DEFAULT_ANIMATION && exitAnim != DEFAULT_ANIMATION)
+      overridePendingTransition(enterAnim, exitAnim);
   }
 
 }
