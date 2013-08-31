@@ -1,89 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:padding="20dp"
-              android:background="#394264"
-              android:gravity="center_horizontal"
-              android:weightSum="4">
-    <LinearLayout  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:gravity="right"
-            android:layout_marginRight="5dp">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#394264">
+    <LinearLayout android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:padding="20dp"
+                  android:gravity="center_horizontal"
+                  android:weightSum="4">
+        <LinearLayout  android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:gravity="right"
+                android:layout_marginRight="5dp">
 
-        <Button android:layout_height="30dp"
-                android:layout_width="30dp"
-                android:gravity="center"
-                android:text="i"
-                android:textColor="#8992B0"
-                android:textSize="20sp"
-                android:background="@drawable/small_round_button"
-                android:onClick="initiateSettingsFlow"/>
-
-    </LinearLayout>
-
-    <RelativeLayout android:id="@+id/ss"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
+            <Button android:layout_height="30dp"
+                    android:layout_width="30dp"
                     android:gravity="center"
-                    android:layout_weight="3">
+                    android:text="i"
+                    android:textColor="#8992B0"
+                    android:textSize="20sp"
+                    android:background="@drawable/small_round_button"
+                    android:onClick="initiateSettingsFlow"/>
 
-        <ImageView android:id="@+id/border_image"
+        </LinearLayout>
+
+        <RelativeLayout android:id="@+id/ss"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_weight="3">
+
+            <ImageView android:id="@+id/border_image"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+
+            <ImageView android:id="@+id/menu_image"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"/>
 
-        <ImageView android:id="@+id/menu_image"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"/>
+        </RelativeLayout>
 
-    </RelativeLayout>
+        <TextView android:id="@+id/welcome_message_text"
+              android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:layout_marginTop="10dp"
+              android:text="Welcome to Blood Torrent"
+              android:textColor="#8992B0"
+              android:textSize="20sp"/>
 
-    <TextView android:id="@+id/welcome_message_text"
-          android:layout_height="wrap_content"
-          android:layout_width="wrap_content"
-          android:layout_marginTop="10dp"
-          android:text="Welcome to Blood Torrent"
-          android:textColor="#8992B0"
-          android:textSize="20sp"/>
+         <LinearLayout android:id="@+id/button_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-     <LinearLayout android:id="@+id/button_container"
+            <Button android:id="@+id/new_request_button"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_height="50dp"
+                    android:text="Request Donation"
+                    android:layout_marginTop="30dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:background="@drawable/flat_button_pink"
+                    android:onClick="initiateNewRequestFlow" />
 
-        <Button android:id="@+id/new_request_button"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Request Donation"
-                android:layout_marginTop="30dp"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:background="@drawable/flat_button_pink"
-                android:onClick="initiateNewRequestFlow" />
-
-        <Button android:id="@+id/request_listing_button"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="View Requests"
-                android:layout_marginTop="20dp"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:background="@drawable/flat_button_pink"
-                android:onClick="initiateRequestListingFlow"/>
-
-        <!--<Button android:id="@+id/settings_button"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="50dp"-->
-                <!--android:text="Settings"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:textColor="#FFFFFF"-->
-                <!--android:textSize="20sp"-->
-                <!--android:background="@drawable/flat_button_pink"-->
-                <!--android:onClick="initiateSettingsFlow"/>-->
+            <Button android:id="@+id/request_listing_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="View Requests"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:background="@drawable/flat_button_pink"
+                    android:onClick="initiateRequestListingFlow"/>
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

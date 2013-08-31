@@ -28,11 +28,11 @@
     </RelativeLayout>
 
     <Button android:id="@+id/set_location_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Set Location"
+            android:layout_margin="1dp"
             android:layout_alignParentBottom="true"
+            style="@style/ButtonBlue"
             android:onClick="returnSelectedLocation"/>
 
 </RelativeLayout>

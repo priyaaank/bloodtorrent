@@ -1,77 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:paddingLeft="20dp"
-              android:paddingRight="20dp"
-              android:background="#394264">
-
-    <TextView android:id="@+id/new_request_title"
-              android:layout_height="50dp"
-              android:padding="10dp"
-              android:gravity="center"
-              android:textSize="25sp"
-              android:textColor="#FFFFFF"
-              android:layout_marginBottom="25dp"
-              android:text="Donation Request"
-              android:layout_width="fill_parent"/>
-
-    <Spinner  android:id="@+id/blood_group_value"
-              android:layout_height="wrap_content"
-              android:background="@drawable/edit_text_rounded"
-              android:paddingLeft="10dp"
-              android:layout_width="match_parent"/>
-
-    <LinearLayout android:layout_height="80dp"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_height="match_parent"
+             android:layout_width="match_parent"
+             android:background="#394264">
+    <LinearLayout android:orientation="vertical"
                   android:layout_width="match_parent"
-                  android:orientation="horizontal"
-                  android:gravity="center_vertical"
-                  android:layout_marginTop="30dp"
-                  android:weightSum="4">
-
-        <net.simonvt.numberpicker.NumberPicker
-            android:id="@+id/blood_quantity_value"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"/>
-
-        <TextView android:id="@+id/quantity_label"
-                  android:layout_width="wrap_content"
                   android:layout_height="match_parent"
-                  android:text="units"
-                  android:layout_marginLeft="5dp"
-                  android:textColor="#9099B7"
-                  android:textSize="20sp"
-                  android:gravity="center_vertical"
-                  android:layout_weight="1"/>
+                  android:paddingLeft="20dp"
+                  android:paddingRight="20dp">
 
-        <View android:layout_height="match_parent"
-              android:layout_width="1dp"
-              android:background="#9099B7"
-              android:layout_gravity="right"/>
+        <TextView android:id="@+id/new_request_title"
+                  android:layout_height="50dp"
+                  android:padding="10dp"
+                  android:gravity="center"
+                  android:textSize="25sp"
+                  android:textColor="#FFFFFF"
+                  android:layout_marginBottom="25dp"
+                  android:text="Donation Request"
+                  android:layout_width="fill_parent"/>
 
-        <ImageButton android:id="@+id/location_button"
-                   android:layout_height="60dp"
-                   android:layout_width="40dp"
-                   android:layout_marginLeft="30dp"
-                   android:background="@drawable/flat_button_pink"
-                   android:src="@drawable/capture_location_image"
-                   android:layout_weight="1"
-                   android:onClick="captureLocation"/>
+        <Spinner  android:id="@+id/blood_group_value"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/edit_text_rounded"
+                  android:paddingLeft="10dp"
+                  android:layout_width="match_parent"/>
+
+        <LinearLayout android:layout_height="80dp"
+                      android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:gravity="center_vertical"
+                      android:layout_marginTop="30dp"
+                      android:weightSum="4">
+
+            <net.simonvt.numberpicker.NumberPicker
+                android:id="@+id/blood_quantity_value"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView android:id="@+id/quantity_label"
+                      android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                      android:text="units"
+                      android:layout_marginLeft="5dp"
+                      android:textColor="#9099B7"
+                      android:textSize="20sp"
+                      android:gravity="center_vertical"
+                      android:layout_weight="1"/>
+
+            <View android:layout_height="match_parent"
+                  android:layout_width="1dp"
+                  android:background="#9099B7"
+                  android:layout_gravity="right"/>
+
+            <ImageButton android:id="@+id/location_button"
+                       android:layout_height="60dp"
+                       android:layout_width="40dp"
+                       android:layout_marginLeft="30dp"
+                       android:background="@drawable/flat_button_pink"
+                       android:src="@drawable/capture_location_image"
+                       android:layout_weight="1"
+                       android:onClick="captureLocation"/>
+
+        </LinearLayout>
+
+        <EditText android:id="@+id/contact_details_value"
+                  android:layout_height="100dp"
+                  android:hint="Contact Details"
+                  android:minLines="3"
+                  style="@style/EditTextRounded"/>
+
+        <Button android:id="@+id/save_new_donation_request"
+                android:onClick="createNewDonation"
+                style="@style/ButtonBlue"
+                android:text="Save" />
 
     </LinearLayout>
-
-    <EditText android:id="@+id/contact_details_value"
-              android:layout_height="100dp"
-              android:hint="Contact Details"
-              android:minLines="3"
-              style="@style/EditTextRounded"/>
-
-    <Button android:id="@+id/save_new_donation_request"
-            android:onClick="createNewDonation"
-            style="@style/ButtonBlue"
-            android:text="Save" />
-
-</LinearLayout>
+</ScrollView>
