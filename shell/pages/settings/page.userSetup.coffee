@@ -13,10 +13,13 @@ calatrava.pageView.userSetup = ->
   renderSection = (key, data) ->
     switch key
       when 'initValues' then initializeValues($p('#setupData'), data)
+      when 'transitionNext' then $p('#saveUserPreferences').triggerHandler("transition:next")
       else $p("#" + key).val(data)
 
   bind: (event, handler) ->
-    $p("#" + event).off('click').on 'click', handler
+    switch event
+      when "transitionNext" then $p("#saveUserPreferences").off("transition:next").on 'transition:next', handler
+      else $p("#" + event).off('click').on 'click', handler
 
   render: (message) ->
     renderSection(section, data) for own section,data of message

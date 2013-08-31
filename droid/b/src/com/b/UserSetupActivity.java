@@ -34,6 +34,7 @@ public class UserSetupActivity extends RegisteredActivity {
     bloodGroupListKeys = new ArrayList<String>(bloodGroupList.keySet());
   }
 
+  public static final String TRANSITION_NEXT = "transitionNext";
   public static final String INIT_VALUES = "initValues";
 
   @Override
@@ -70,14 +71,11 @@ public class UserSetupActivity extends RegisteredActivity {
 
   @Override
   public String getFieldValue(String field) {
-    if("userName".equalsIgnoreCase(field))
-    {
+    if("userName".equalsIgnoreCase(field)) {
       return ((EditText)this.findViewById(R.id.user_name_value)).getText().toString();
-    } else if("bloodGroup".equalsIgnoreCase(field))
-    {
+    } else if("bloodGroup".equalsIgnoreCase(field)) {
       return bloodGroupListKeys.get(((Spinner)this.findViewById(R.id.user_blood_group_value)).getSelectedItemPosition());
-    } else if("notificationRadius".equalsIgnoreCase(field))
-    {
+    } else if("notificationRadius".equalsIgnoreCase(field)) {
       return Integer.toString(((NumberPicker)this.findViewById(R.id.user_radius_value)).getValue());
     }
 
@@ -91,6 +89,8 @@ public class UserSetupActivity extends RegisteredActivity {
       String key = String.valueOf(dataObject.keys().next());
       if(INIT_VALUES.equalsIgnoreCase(key)) {
         updateViewFromJsonObject(dataObject);
+      } else if(TRANSITION_NEXT.equalsIgnoreCase(key)) {
+        this.finish();
       }
     } catch (JSONException e) {
       Log.e(TAG, e.getMessage());

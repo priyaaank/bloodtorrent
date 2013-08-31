@@ -19,7 +19,8 @@ bloodtorrent.settings.controller = ({views, changePage, settingsSaved}) ->
     saveSettingsAndContinue = _.after fields.length, () ->
       persistPreferenceValues(valueHash)
       calatrava.preferences.add("firstTimeSetup", "Done")
-      settingsSaved()
+      views.userSetupPage.render
+        transitionNext: ""
 
     _.each fields, (fieldName) ->
       views.userSetupPage.get fieldName, (value) ->
@@ -28,6 +29,7 @@ bloodtorrent.settings.controller = ({views, changePage, settingsSaved}) ->
 
   captureUserSettings = () ->
     views.userSetupPage.bind "saveUserPreferences", savePreferences
+    views.userSetupPage.bind "transitionNext", settingsSaved
 
   renderExistingValues = () ->
     valueHash = {}
