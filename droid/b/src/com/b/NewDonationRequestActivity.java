@@ -1,6 +1,7 @@
 package com.b;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -9,6 +10,8 @@ import android.widget.TimePicker;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
 import net.simonvt.numberpicker.NumberPicker;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -21,6 +24,7 @@ public class NewDonationRequestActivity extends RegisteredActivity {
   private static final String TAG = NewDonationRequestActivity.class.getCanonicalName();
 
   private final static Map<String, String> bloodGroupList = new LinkedHashMap<String, String>();
+  private static final String BACK = "back";
   private static List<String> bloodGroupListKeys;
 
   static {
@@ -81,7 +85,19 @@ public class NewDonationRequestActivity extends RegisteredActivity {
 
   @Override
   public void render(String json) {
-    //Do nothing
+    try {
+      JSONObject dataObject = new JSONObject(json);
+      String key = String.valueOf(dataObject.keys().next());
+      if(BACK.equalsIgnoreCase(key)) {
+        finishAndGoBack();
+      }
+    } catch (JSONException e) {
+      Log.e(TAG, e.getMessage());
+    }
+  }
+
+  private void finishAndGoBack() {
+    this.finish();
   }
 
   public void createNewDonation(View newDonationButton) {

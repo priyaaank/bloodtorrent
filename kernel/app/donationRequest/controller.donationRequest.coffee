@@ -58,7 +58,8 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     repositories.donationsRepository.createDonation({donationRequest, onDonationCreateSuccess, onDonationCreateFailure})
 
   onDonationCreateSuccess = (successResponse) ->
-    calatrava.bridge.changePage "menu"
+    views.newDonationRequestPage.render
+      back: ""
 
   onDonationCreateFailure = (errorCode, errorMessage) ->
     calatrava.alert("new donation creation failed")
