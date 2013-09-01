@@ -2,6 +2,7 @@ package com.b;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
 import com.google.android.gms.maps.model.LatLng;
@@ -17,6 +18,12 @@ public class CaptureLocationActivity extends RegisteredActivity {
     super.onCreate(availableData);
     setContentView(R.layout.capture_location);
     attachMapFragment();
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    Toast.makeText(this, "Zoom in and move donation place to the cross hair on map", Toast.LENGTH_LONG).show();
   }
 
   @Override

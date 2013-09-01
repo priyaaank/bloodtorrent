@@ -34,9 +34,6 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     calatrava.alert(errorResponse)
 
   fetchAndUpdateDonationListing = (cordinates) ->
-    calatrava.bridge.log "-----------------------------------------------------"
-    calatrava.bridge.log JSON.stringify(cordinates)
-    calatrava.bridge.log "-----------------------------------------------------"
     location = JSON.parse(cordinates)
     options =
       successCallback: successCallback
@@ -56,7 +53,7 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
       changePage("donationRequestListing")
       location =
           latitude: 18.5236
-          longitude: 73.8478
+          longitude: "73.8478"
       fetchAndUpdateDonationListing(JSON.stringify(location))
 
   bindCaptureLocationPage = () ->
