@@ -26,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @CalatravaPage(name = "donationRequestListing")
@@ -228,7 +229,12 @@ public class DonationRequestListingActivity extends RegisteredActivity implement
   @Override
   public void onLocationChanged(Location location) {
     Log.d(TAG, "location=" + location.toString());
-    this.triggerEvent("refreshDonations", new String[]{});
+    JSONObject cordinates = null;
+    HashMap<String, String> locationHash = new HashMap<String, String>();
+    locationHash.put("latitude", Double.toString(location.getLatitude()));
+    locationHash.put("longitude", Double.toString(location.getLongitude()));
+    cordinates = new JSONObject(locationHash);
+    this.triggerEvent("refreshDonations", new String[]{cordinates.toString()});
   }
 
   @Override
