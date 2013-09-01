@@ -22,14 +22,18 @@ public abstract class RegisteredActivity extends FragmentActivity {
     public void onReceive(Context context, Intent intent) {
       Log.d(TAG, "Received broadcast");
       if (intent.getAction().endsWith("start")) {
-        spinner.onLoadingStart();
+        if(showLoaderDuringNetworkCalls()) spinner.onLoadingStart();
       } else if (intent.getAction().endsWith("finish")) {
-        spinner.onLoadingFinish();
+        if(showLoaderDuringNetworkCalls())spinner.onLoadingFinish();
       } else if (intent.getAction().equals("com.calatrava.command")) {
         PluginRegistry.sharedRegistry().runCommand(intent, RegisteredActivity.this);
       }
     }
   };
+
+  protected boolean showLoaderDuringNetworkCalls() {
+    return true;
+  }
 
   @Override
   protected void onCreate(Bundle availableData) {

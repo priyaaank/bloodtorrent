@@ -78,4 +78,5 @@ public class DonationsMapFragment extends SupportMapFragment implements Donation
       this.getMap().animateCamera(cameraUpdate);
     }
   }
+
 }

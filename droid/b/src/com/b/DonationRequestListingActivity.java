@@ -1,5 +1,8 @@
 package com.b;
 
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -8,8 +11,14 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesClient;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import org.json.JSONArray;
@@ -20,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @CalatravaPage(name = "donationRequestListing")
-public class DonationRequestListingActivity extends RegisteredActivity {
+public class DonationRequestListingActivity extends RegisteredActivity implements GooglePlayServicesClient.ConnectionCallbacks, GooglePlayServicesClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 
   private static final String TAG = DonationRequestListingActivity.class.getCanonicalName();
   private static final String MAP_FRAGMENT = "map_fragment";
@@ -32,6 +41,7 @@ public class DonationRequestListingActivity extends RegisteredActivity {
   private LinearLayout noDonationsView;
   private DonationViewPagerAdapter viewPagerAdapter;
   private List<DonationsUpdateObserver> observers = new ArrayList<DonationsUpdateObserver>();
+  private LocationClient locationClient;
 
   @Override
   protected void onCreate(Bundle availableData) {
@@ -41,6 +51,7 @@ public class DonationRequestListingActivity extends RegisteredActivity {
     attachMapFragment();
     attachViewPagerFragment();
     attachNoDonationsView();
+    attachSelfAsLocationListener();
   }
 
   private void attachNoDonationsView() {
@@ -173,4 +184,55 @@ public class DonationRequestListingActivity extends RegisteredActivity {
     }
   }
 
+  private void attachSelfAsLocationListener() {
+    final int result = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+    if (result != ConnectionResult.SUCCESS) {
+      Toast.makeText(this, "Your location is not available on this phone", Toast.LENGTH_LONG).show();
+      return;
+    }
+    locationClient = new LocationClient(this, this, this);
+  }
+
+  @Override
+  public void onConnected(Bundle bundle) {
+    LocationRequest locationRequest = new LocationRequest ();
+    locationRequest.setInterval(60000);
+    locationRequest.setSmallestDisplacement(50000);
+    locationClient.requestLocationUpdates (locationRequest, this);
+  }
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    locationClient.connect();
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    locationClient.removeLocationUpdates(this);
+    locationClient.disconnect();
+  }
+
+  @Override
+  public void onDisconnected() {
+    Log.d(TAG, "Google play services connection for location disconnected");
+    locationClient.removeLocationUpdates(this);
+  }
+
+  @Override
+  public void onConnectionFailed(ConnectionResult connectionResult) {
+    Log.d(TAG, "Google play services connection for location failed");
+  }
+
+  @Override
+  public void onLocationChanged(Location location) {
+    Log.d(TAG, "location=" + location.toString());
+    this.triggerEvent("refreshDonations", new String[]{});
+  }
+
+  @Override
+  protected boolean showLoaderDuringNetworkCalls() {
+    return false;
+  }
 }

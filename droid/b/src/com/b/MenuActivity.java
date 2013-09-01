@@ -65,4 +65,9 @@ public class MenuActivity extends RegisteredActivity {
   public void initiateSettingsFlow(View settingsButton) {
       this.triggerEvent("settings", new String[]{});
   }
+
+  @Override
+  protected boolean showLoaderDuringNetworkCalls() {
+    return false;
+  }
 }
