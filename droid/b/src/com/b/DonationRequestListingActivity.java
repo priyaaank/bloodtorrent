@@ -205,7 +205,6 @@ public class DonationRequestListingActivity extends RegisteredActivity implement
   @Override
   protected void onResume() {
     super.onResume();
-    new GpsManager(this).prepareGPS();
     locationClient.connect();
   }
 
