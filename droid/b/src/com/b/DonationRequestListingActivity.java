@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
 import com.google.android.gms.maps.model.BitmapDescriptor;
@@ -27,6 +29,7 @@ public class DonationRequestListingActivity extends RegisteredActivity {
 
   private DonationsMapFragment mapFragment;
   private ViewPager viewPagerList;
+  private LinearLayout noDonationsView;
   private DonationViewPagerAdapter viewPagerAdapter;
   private List<DonationsUpdateObserver> observers = new ArrayList<DonationsUpdateObserver>();
 
@@ -37,6 +40,13 @@ public class DonationRequestListingActivity extends RegisteredActivity {
 
     attachMapFragment();
     attachViewPagerFragment();
+    attachNoDonationsView();
+  }
+
+  private void attachNoDonationsView() {
+    noDonationsView = (LinearLayout)getLayoutInflater().inflate(R.layout.no_donations_view,null,false);
+    FrameLayout pagerContainer = (FrameLayout) this.findViewById(R.id.listing_container);
+    pagerContainer.addView(noDonationsView);
   }
 
   private void attachViewPagerFragment() {
@@ -44,6 +54,7 @@ public class DonationRequestListingActivity extends RegisteredActivity {
     viewPagerList = new ViewPager(this);
     viewPagerList.setId(VIEW_PAGER_ID);
     viewPagerList.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+    viewPagerList.setVisibility(View.GONE);
     viewPagerAdapter = new DonationViewPagerAdapter(this.getSupportFragmentManager());
     viewPagerList.setAdapter(viewPagerAdapter);
     pagerContainer.addView(viewPagerList);
@@ -125,11 +136,19 @@ public class DonationRequestListingActivity extends RegisteredActivity {
     this.runOnUiThread(new Runnable() {
       @Override
       public void run() {
-
-        if(donationList != null && !donationList.isEmpty()) updateMapForDonation(donationList.get(0));
+        boolean isDonationListEmpty = (donationList == null || donationList.isEmpty());
+        manageListingState(isDonationListEmpty);
+        if(isDonationListEmpty) updateMapForDonation(donationList.get(0));
         viewPagerAdapter.updateList(donationList);
       }
     });
+  }
+
+  private void manageListingState(boolean isDonationListEmpty) {
+    int noDonationsViewState = isDonationListEmpty ? View.VISIBLE : View.GONE;
+    int pagerViewState = isDonationListEmpty ? View.GONE : View.VISIBLE;
+    viewPagerList.setVisibility(pagerViewState);
+    noDonationsView.setVisibility(noDonationsViewState);
   }
 
   private List<Donation> donationsListFromJsonObject(JSONObject jsonObjectWithDonations) {
