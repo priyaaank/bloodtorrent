@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
 import net.simonvt.numberpicker.NumberPicker;
@@ -57,6 +58,8 @@ public class UserSetupActivity extends RegisteredActivity {
     NumberPicker numberPicker = (NumberPicker)this.findViewById(R.id.user_radius_value);
     numberPicker.setMinValue(1);
     numberPicker.setMaxValue(300);
+    numberPicker.setValue(40);
+    numberPicker.setDescendantFocusability(TimePicker.FOCUS_BLOCK_DESCENDANTS);
   }
 
   public void savePreferences(View saveButton)

@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import com.calatrava.bridge.RhinoService;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -95,7 +97,7 @@ public class AjaxRequestManager {
         response = httpclient.execute(request);
 
         StatusLine statusLine = response.getStatusLine();
-        String responseBody = readResponseBody(response);
+        String responseBody = StringEscapeUtils.escapeEcmaScript(readResponseBody(response));
         Log.d(TAG, "Response is :" + statusLine.getStatusCode());
         Log.d(TAG, "Response is :" + responseBody);
         if (statusLine.getStatusCode() < 300) {
