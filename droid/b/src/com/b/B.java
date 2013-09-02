@@ -1,8 +1,5 @@
 package com.b;
 
-import android.app.Activity;
-import android.os.Bundle;
-
 import com.calatrava.bridge.CalatravaApplication;
 
 public class B extends CalatravaApplication

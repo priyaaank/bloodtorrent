@@ -3,7 +3,7 @@ bloodtorrent.launcher ?= {}
 bloodtorrent.launcher.launch = () ->
 
   runThroughInitialSetup = () ->
-    bloodtorrent.settings.start(startApp)
+    bloodtorrent.settings.start(true, startApp)
 
   startApp = () -> bloodtorrent.menu.start();
 
