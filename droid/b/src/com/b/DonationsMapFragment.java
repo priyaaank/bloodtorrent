@@ -59,6 +59,7 @@ public class DonationsMapFragment extends SupportMapFragment implements Donation
   @Override
   public void updatedDonationsList(List<Donation> donations) {
     this.getMap().clear();
+    if(donations == null) return;
     for(Donation donation : donations) {
       this.getMap().addMarker(markerOptionsFor(donation));
     }

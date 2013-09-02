@@ -35,7 +35,10 @@ public class DonationRequestListingActivity extends RegisteredActivity implement
   private static final String TAG = DonationRequestListingActivity.class.getCanonicalName();
   private static final String MAP_FRAGMENT = "map_fragment";
   private static final String DONATIONS = "donations";
+
   private static final int VIEW_PAGER_ID = 66;
+  public static final int FIVE_KILOMETERS = 50000;
+  public static final int FIFTEEN_MINUTES = 5*60*1000;
 
   private DonationsMapFragment mapFragment;
   private ViewPager viewPagerList;
@@ -134,8 +137,8 @@ public class DonationRequestListingActivity extends RegisteredActivity implement
 
   private void notifySubscribersOfNewListing(JSONObject jsonObjectWithDonations) {
     final List<Donation> donationList = donationsListFromJsonObject(jsonObjectWithDonations);
+    final boolean isDonationListEmpty = (donationList == null || donationList.isEmpty());
 
-    if(donationList.size() == 0) return;
     for(final DonationsUpdateObserver observer : observers) {
       this.runOnUiThread(new Runnable() {
         @Override
@@ -148,12 +151,15 @@ public class DonationRequestListingActivity extends RegisteredActivity implement
     this.runOnUiThread(new Runnable() {
       @Override
       public void run() {
-        boolean isDonationListEmpty = (donationList == null || donationList.isEmpty());
         manageListingState(isDonationListEmpty);
-        if(isDonationListEmpty) updateMapForDonation(donationList.get(0));
+        if (!isDonationListEmpty) updateMapForDonation(donationList.get(0));
         viewPagerAdapter.updateList(donationList);
       }
     });
+  }
+
+  private void updateViewWithNoDonationsMessage() {
+    ((TextView)this.findViewById(R.id.no_donations_text_view)).setText("No donations found near you");
   }
 
   private void manageListingState(boolean isDonationListEmpty) {
@@ -161,6 +167,7 @@ public class DonationRequestListingActivity extends RegisteredActivity implement
     int pagerViewState = isDonationListEmpty ? View.GONE : View.VISIBLE;
     viewPagerList.setVisibility(pagerViewState);
     noDonationsView.setVisibility(noDonationsViewState);
+    updateViewWithNoDonationsMessage();
   }
 
   private List<Donation> donationsListFromJsonObject(JSONObject jsonObjectWithDonations) {
@@ -197,21 +204,20 @@ public class DonationRequestListingActivity extends RegisteredActivity implement
   @Override
   public void onConnected(Bundle bundle) {
     LocationRequest locationRequest = new LocationRequest ();
-    locationRequest.setInterval(60000);
-    locationRequest.setSmallestDisplacement(50000);
-    locationClient.requestLocationUpdates (locationRequest, this);
+    locationRequest.setInterval(FIFTEEN_MINUTES);
+    locationRequest.setSmallestDisplacement(FIVE_KILOMETERS);
+    locationClient.requestLocationUpdates(locationRequest, this);
   }
 
   @Override
-  protected void onResume() {
-    super.onResume();
+  protected void onStart() {
+    super.onStart();
     locationClient.connect();
   }
 
   @Override
-  protected void onPause() {
-    super.onPause();
-    locationClient.removeLocationUpdates(this);
+  protected void onStop() {
+    super.onStop();
     locationClient.disconnect();
   }
 

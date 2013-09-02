@@ -51,10 +51,6 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     calatrava.preferences.retrieve "bloodGroup", (bloodgroup) ->
       lookupBloodGroup = bloodgroup
       changePage("donationRequestListing")
-      location =
-          latitude: 18.5236
-          longitude: "73.8478"
-      fetchAndUpdateDonationListing(JSON.stringify(location))
 
   bindCaptureLocationPage = () ->
     views.captureLocationPage.bind "updateLocationForDonation", updateLocationForDonation
