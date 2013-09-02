@@ -30,8 +30,8 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     views.donationRequestListingPage.render
       donations: successResponse
 
-  failureCallback = (errorCode, errorResponse) ->
-    calatrava.alert(errorResponse)
+  failureCallback = (error) ->
+    calatrava.alert(error.errorMessage)
 
   fetchAndUpdateDonationListing = (cordinates) ->
     location = JSON.parse(cordinates)
@@ -67,10 +67,10 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
       back: ""
 
   onDonationCreateFailure = (errorCode, errorMessage) ->
-    calatrava.alert("new donation creation failed")
+    calatrava.alert("Oops! That did not go through. Would you please try it later?")
 
   renderErrors = (errors) ->
-    calatrava.alert("errors")
+    calatrava.alert("Oh No! Either you missed map location or contact details or both")
 
   validateAndCreateDonationRequest = () ->
     bloodGroup = null

@@ -13,7 +13,7 @@ bloodtorrent.donationRequest.repository = ({ajax}) ->
       success: (responseData) ->
         options.successCallback JSON.parse(responseData)
       failure: (errorCode, errorMsg) ->
-        options.failureCallback {"status" : "Error", errorMessage : errorMsg }
+        options.failureCallback {"status" : "Error", errorMessage : "Shucks! The call to server failed. Is you internet connection active?" }
 
   createDonation : (options) ->
     url = "#{bloodtorrent.environment().apiEndpoint}/donation/new"
