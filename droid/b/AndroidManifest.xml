@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.b"
+      package="com.barefoot.bloodtorrent"
       android:versionCode="1"
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="14" />
@@ -17,7 +17,7 @@
     <uses-permission android:name="com.b.permission.MAPS_RECEIVE" />
     <permission android:name="com.b.permission.MAPS_RECEIVE" android:protectionLevel="signature" />
     <application android:label="@string/app_name"
-                 android:name="B"
+                 android:name="Bloodtorrent"
                  android:icon="@drawable/ic_launcher"
                  android:theme="@style/CustomTheme">
         <activity android:name=".Bootstrap"
@@ -34,6 +34,6 @@
         <activity android:name=".CaptureLocationActivity" android:label="CaptureLocation" />
 
         <!-- Debug Key for the app -->
-        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDLLBtjhAR1V5QxGxaRcLGEgf-5jkGcnw8" />
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyD8kIUvBOPR-W3NI7NK0riIEetbf3nOH3o" />
     </application>
 </manifest> 

@@ -1,4 +1,4 @@
-package com.b;
+package com.barefoot.bloodtorrent;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -1,4 +1,4 @@
-package com.b;
+package com.barefoot.bloodtorrent;
 
 import android.util.Log;
 import org.json.JSONArray;

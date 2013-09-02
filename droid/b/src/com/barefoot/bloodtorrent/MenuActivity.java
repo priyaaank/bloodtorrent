@@ -1,4 +1,4 @@
-package com.b;
+package com.barefoot.bloodtorrent;
 
 import android.graphics.*;
 import android.os.Bundle;

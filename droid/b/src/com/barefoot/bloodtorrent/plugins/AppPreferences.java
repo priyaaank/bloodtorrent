@@ -1,4 +1,4 @@
-package com.b.plugins;
+package com.barefoot.bloodtorrent.plugins;
 
 import android.content.Context;
 import android.content.SharedPreferences;

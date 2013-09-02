@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import com.b.R;
+import com.barefoot.bloodtorrent.R;
 
 public abstract class RegisteredActivity extends FragmentActivity {
   protected static final int DEFAULT_ANIMATION = 0;

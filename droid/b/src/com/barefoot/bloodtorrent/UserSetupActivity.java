@@ -1,4 +1,4 @@
-package com.b;
+package com.barefoot.bloodtorrent;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +13,10 @@ import net.simonvt.numberpicker.NumberPicker;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 @CalatravaPage(name = "userSetup")
 public class UserSetupActivity extends RegisteredActivity {

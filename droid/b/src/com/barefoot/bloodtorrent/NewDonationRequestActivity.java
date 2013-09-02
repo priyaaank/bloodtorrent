@@ -1,9 +1,12 @@
-package com.b;
+package com.barefoot.bloodtorrent;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.*;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TimePicker;
 import com.calatrava.CalatravaPage;
 import com.calatrava.bridge.RegisteredActivity;
 import net.simonvt.numberpicker.NumberPicker;

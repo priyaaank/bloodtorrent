@@ -1,4 +1,6 @@
-package com.b;
+package com.barefoot.bloodtorrent;
+
+import com.barefoot.bloodtorrent.Donation;
 
 import java.util.List;
 
