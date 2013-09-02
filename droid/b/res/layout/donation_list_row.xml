@@ -76,6 +76,6 @@
             android:layout_marginRight="10dp"
             android:src="@drawable/navigation_button"
             android:clickable="true"
-            android:onClick="Navigate"
+            android:onClick="navigate"
             android:padding="3dip" />
 </LinearLayout>

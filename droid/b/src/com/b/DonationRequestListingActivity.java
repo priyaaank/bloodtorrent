@@ -1,8 +1,10 @@
 package com.b;
 
+import android.content.Intent;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -21,6 +23,7 @@ import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -129,10 +132,6 @@ public class DonationRequestListingActivity extends RegisteredActivity implement
 
   public void deregisterObserver(DonationsUpdateObserver observer) {
     if(observers.contains(observer)) observers.remove(observer);
-  }
-
-  public void Navigate(View navigateButton) {
-    //do nothing
   }
 
   private void notifySubscribersOfNewListing(JSONObject jsonObjectWithDonations) {
@@ -246,5 +245,11 @@ public class DonationRequestListingActivity extends RegisteredActivity implement
   @Override
   protected boolean showLoaderDuringNetworkCalls() {
     return false;
+  }
+
+  public void navigate(View navigationImage) {
+    LatLng latlngForDestination = (LatLng) navigationImage.getTag();
+    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + latlngForDestination.latitude + "," + latlngForDestination.longitude + ""));
+    this.startActivity(intent);
   }
 }
