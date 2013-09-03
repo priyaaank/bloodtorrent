@@ -1,11 +1,9 @@
-Android App in Play Store
-=========================
+# Android App in Play Store
 
 This app has been released into the Android Play store. You can get it [here](https://play.google.com/store/apps/details?id=com.barefoot.bloodtorrent&hl=en)
 
 
-Developers
-==========
+# Developers
 
 Create a Directory "LibraryProjects" outside the app directory and clone following github repositories
 https://github.com/SimonVT/android-numberpicker.git
