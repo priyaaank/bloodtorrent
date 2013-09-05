@@ -10,6 +10,7 @@
 
     - Calatrava::Project.current.mobile_web.scripts.each do |filename|
       %script(type="text/javascript" src="#{filename}")
+    %script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkjTIGExixerD1kEHqyip8UR5L3E4L6R4&sensor=false")
 
   %body
     = render_partial "shell/shared/action_bar.haml"

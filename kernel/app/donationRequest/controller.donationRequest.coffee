@@ -20,6 +20,8 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
 
   showLocationCapturePage = () ->
     changePage("captureLocation")
+    views.captureLocationPage.render
+      mapView: ""
     bindCaptureLocationPage()
 
   updateLocationForDonation = (latitude, longitude) ->
