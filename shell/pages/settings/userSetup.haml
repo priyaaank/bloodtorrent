@@ -4,24 +4,24 @@
       %fieldset
         %legend User Setup
 
-        %label{:for => "userName"} Name
-        %input#userName{:type => "text", :name => "userName"}
+        %div.pure-group
+          %input.pure-input-1#userName{:type => "text", :name => "userName", :placeholder => "Display name"}
 
-        %label{:for => "bloodGroup"} Blood Group
-        %select#bloodGroup
-          %option{ :value => "choose"} Select
-          %option{ :value => "apositive"}A Positive
-          %option{ :value => "anegative"}A Negative
-          %option{ :value => "bpositive"}B Positive
-          %option{ :value => "bnegative"}B Negative
-          %option{ :value => "opositive"}O Positive
-          %option{ :value => "onegative"}O Negative
-          %option{ :value => "abpositive"}AB Positive
-          %option{ :value => "abnegative"}AB Negative
+        %div.pure-group
+          %input.pure-input-1#notificationRadius{:type => "text", :name => "notificationRadius", :placeholder => "Notification radius in Kms"}
 
-        %label{:for => "notificationRadius"} Notification Radius
-        %input#notificationRadius{:type => "text", :name => "notificationRadius"}
+        %div.pure-group
+          %select.pure-input-1#bloodGroup
+            %option{ :value => "choose"} Select Blood Group
+            %option{ :value => "apositive"}A Positive
+            %option{ :value => "anegative"}A Negative
+            %option{ :value => "bpositive"}B Positive
+            %option{ :value => "bnegative"}B Negative
+            %option{ :value => "opositive"}O Positive
+            %option{ :value => "onegative"}O Negative
+            %option{ :value => "abpositive"}AB Positive
+            %option{ :value => "abnegative"}AB Negative
 
         %label &nbsp;
-        %div#saveUserPreferences.pure-button.pure-button-primary{:name => "saveUserPreferences"} Save
+        %div#saveUserPreferences.pure-button.pure-button-primary.pure-button-large{:name => "saveUserPreferences"} Save
         %div#transitionNext

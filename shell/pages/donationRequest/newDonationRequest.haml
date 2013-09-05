@@ -1,26 +1,27 @@
 %div#newDonationRequest.page
-  %div.action-bar.clearfix.text-center
-    %h2.page-title
-      New Request
 
-  #newRequest
-    .field
-      %label.span150.vertical-top.field-label Blood Group
-      %input#bloodGroup.span150.field_value{:type => "text", :name => "bloodgroup"}
+  %form.pure-form.pure-form-stacked
+    %fieldset
+      %legend New Request
 
-    .field
-      %label.span150.vertical-top.field-label Quantity
-      %input#quantity.span150.field_value{:type => "text", :name => "quantity"}
+      #newRequest
+        .field
+          %label.span150.vertical-top.field-label
+          %input.pure-input-1#bloodGroup{:type => "text", :name => "bloodgroup", :placeholder => "Blood Group"}
 
-    .field
-      %label.span150.vertical-top.field-label Contact Details
-      %textarea#contactDetails.span150.multiline_string{:name => "contact_details"}
+        .field
+          %label.span150.vertical-top.field-label
+          %input.pure-input-1#quantity{:type => "text", :name => "quantity", :placeholder => "Quantity"}
 
-    .field
-      %label.span150.vertical-top.field-label Location
-      .field_value.span150.text-center
-        %img#location.image-button{:src => "../images/place.png"}
+        .field
+          %label.span150.vertical-top.field-label
+          %textarea.pure-input-1#contactDetails.multiline_string{:name => "contact_details", :placeholder => "Contact Details"}
 
-    .action
-      %div#submitDonationRequest.submit-button{:name => "submitDonationRequest"}
-        Create
+        .field
+          %label.span150.vertical-top.field-label
+          .field_value.span150.text-center
+            %img#location.image-button{:src => "../images/place.png"}
+
+        .action
+          %div#submitDonationRequest.pure-button.pure-button-primary.pure-button-large{:name => "submitDonationRequest"}
+            Create
