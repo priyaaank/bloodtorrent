@@ -60,9 +60,8 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
   bindCaptureLocationPage = () ->
     views.captureLocationPage.bind "updateLocationForDonation", updateLocationForDonation
     views.captureLocationPage.bind "selectLocation", (location) ->
-      selectedLocation.latitude = location.lat()
-      selectedLocation.longitude = location.lng()
-      history.back()
+      updateLocationForDonation(location.lat(), location.lng())
+      changePage "newDonationRequest"
 
   bindCreateDonationView = () ->
     views.newDonationRequestPage.bind "submitDonationRequest", validateAndCreateDonationRequest
