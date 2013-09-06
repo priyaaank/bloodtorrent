@@ -2,20 +2,13 @@
   #setupData
     %form.pure-form.pure-form-stacked
       %fieldset
-        %legend.page-header-center User Setup
+        %legend.page-header-center User Settings
 
         %div.pure-group.margin-top
           %input.pure-input-1#userName{:type => "text", :name => "userName", :placeholder => "Display name"}
 
-        -#%div.pure-group.margin-top
-        -#  %input.pure-input-1#notificationRadius{:type => "text", :name => "notificationRadius", :placeholder => "Notification radius in Kms"}
-
         %div.pure-group.margin-top
-          %select.pure-input-1#notificationRadius
-            %option{ :value => "choose"} Donation lookup radius (Kms)
-
-        %div.pure-group.margin-top
-          %select.pure-input-1#bloodGroup
+          %select.pure-input-1.select-box-large#bloodGroup
             %option{ :value => "choose"} Select Blood Group
             %option{ :value => "apositive"}A Positive
             %option{ :value => "anegative"}A Negative
@@ -25,6 +18,10 @@
             %option{ :value => "onegative"}O Negative
             %option{ :value => "abpositive"}AB Positive
             %option{ :value => "abnegative"}AB Negative
+
+        %div.pure-group.margin-top
+          %select.pure-input-1.select-box-large#notificationRadius
+            %option{ :value => "choose"} Donation lookup radius (Kms)
 
         %label &nbsp;
         %div#saveUserPreferences.pure-button.pure-button-primary.pure-button-large.pure-button-primary-center-custom{:name => "saveUserPreferences"} Save
