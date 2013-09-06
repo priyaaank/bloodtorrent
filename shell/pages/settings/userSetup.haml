@@ -7,8 +7,12 @@
         %div.pure-group.margin-top
           %input.pure-input-1#userName{:type => "text", :name => "userName", :placeholder => "Display name"}
 
+        -#%div.pure-group.margin-top
+        -#  %input.pure-input-1#notificationRadius{:type => "text", :name => "notificationRadius", :placeholder => "Notification radius in Kms"}
+
         %div.pure-group.margin-top
-          %input.pure-input-1#notificationRadius{:type => "text", :name => "notificationRadius", :placeholder => "Notification radius in Kms"}
+          %select.pure-input-1#notificationRadius
+            %option{ :value => "choose"} Donation lookup radius (Kms)
 
         %div.pure-group.margin-top
           %select.pure-input-1#bloodGroup

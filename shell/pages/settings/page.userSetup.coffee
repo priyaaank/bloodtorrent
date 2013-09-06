@@ -4,8 +4,15 @@ calatrava.pageView.userSetup = ->
 
   $page = $('#userSetup')
   $p = (sel)-> $(sel, $page)
+  $radiusDropdownIsInitialized = false
+
+  initializeRadiusDropdown = () ->
+    radiusDropdown = $p('#notificationRadius')
+    radiusDropdown.append(new Option(radiusValue, radiusValue)) for radiusValue in [1..300]
+    $radiusDropdownIsInitialized = true
 
   initializeValues = ($select, data) ->
+    initializeRadiusDropdown() unless $radiusDropdownIsInitialized
     $select.find("#userName").val(data.userName)
     $select.find("#notificationRadius").val(data.notificationRadius)
     $select.find("#bloodGroup").val(data.bloodGroup)
