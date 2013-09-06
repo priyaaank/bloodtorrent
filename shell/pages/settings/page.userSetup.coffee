@@ -8,7 +8,7 @@ calatrava.pageView.userSetup = ->
 
   initializeRadiusDropdown = () ->
     radiusDropdown = $p('#notificationRadius')
-    radiusDropdown.append(new Option(radiusValue, radiusValue)) for radiusValue in [1..300]
+    radiusDropdown.append(new Option(radiusValue + " kms", radiusValue)) for radiusValue in [5,10,15,25,50,75,100,150,200,300]
     $radiusDropdownIsInitialized = true
 
   initializeValues = ($select, data) ->

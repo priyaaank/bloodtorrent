@@ -6,7 +6,6 @@
         .pure-g
           .pure-u-1-4
             .avatar
-              -# This should be replaced by some image/avatar image.
               %i.icon.icon-users-2
           .pure-u-1-2
             .title.name {{requestor}}
@@ -23,7 +22,11 @@
 
       {{/donations}}
 
+  %script#noDonationRecordsBannerTmpl(type="text/html")
+    %h4.list-title.text-center#noDonationRecordsMessage
+      No donation records found
+
   %h4.list-title.text-center#loadingBanner
-    Loading Donation Requests
+    Fetching list based on you location...
 
   #donationListing
