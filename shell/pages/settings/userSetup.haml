@@ -2,15 +2,15 @@
   #setupData
     %form.pure-form.pure-form-stacked
       %fieldset
-        %legend User Setup
+        %legend.page-header-center User Setup
 
-        %div.pure-group
+        %div.pure-group.margin-top
           %input.pure-input-1#userName{:type => "text", :name => "userName", :placeholder => "Display name"}
 
-        %div.pure-group
+        %div.pure-group.margin-top
           %input.pure-input-1#notificationRadius{:type => "text", :name => "notificationRadius", :placeholder => "Notification radius in Kms"}
 
-        %div.pure-group
+        %div.pure-group.margin-top
           %select.pure-input-1#bloodGroup
             %option{ :value => "choose"} Select Blood Group
             %option{ :value => "apositive"}A Positive
@@ -23,5 +23,5 @@
             %option{ :value => "abnegative"}AB Negative
 
         %label &nbsp;
-        %div#saveUserPreferences.pure-button.pure-button-primary.pure-button-large{:name => "saveUserPreferences"} Save
+        %div#saveUserPreferences.pure-button.pure-button-primary.pure-button-large.pure-button-primary-center-custom{:name => "saveUserPreferences"} Save
         %div#transitionNext
