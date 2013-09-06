@@ -5,16 +5,22 @@
       %legend.page-header-center New Request
 
       #newRequest
-        .field
-          %label.span150.vertical-top.field-label
-          %input.pure-input-1#bloodGroup{:type => "text", :name => "bloodgroup", :placeholder => "Blood Group"}
+        %div.pure-group.margin-top
+          %select.pure-input-1.select-box-large#bloodGroup{:name => "bloodgroup"}
+            %option{ :value => "choose"} Select Blood Group
+            %option{ :value => "a+"}A Positive
+            %option{ :value => "b+"}B Positive
+            %option{ :value => "ab+"}AB Positive
+            %option{ :value => "o+"}O Positive
+            %option{ :value => "a-"}A Negative
+            %option{ :value => "b-"}B Negative
+            %option{ :value => "ab-"}AB Negative
+            %option{ :value => "o-"}O Negative
 
-        .field
-          %label.span150.vertical-top.field-label
+        %div.pure-group.margin-top
           %input.pure-input-1#quantity{:type => "text", :name => "quantity", :placeholder => "Quantity"}
 
-        .field
-          %label.span150.vertical-top.field-label
+        %div.pure-group.margin-top
           %textarea.pure-input-1#contactDetails.multiline_string{:name => "contact_details", :placeholder => "Contact Details"}
 
         .field
@@ -25,3 +31,5 @@
         .action
           %div.pure-button-primary-center-custom#submitDonationRequest.pure-button.pure-button-primary.pure-button-large{:name => "submitDonationRequest"}
             Create
+
+        #goHome

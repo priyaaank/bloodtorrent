@@ -6,11 +6,14 @@ calatrava.pageView.newDonationRequest = ->
   $p = (sel)-> $(sel, $page)
 
   renderSection = (key, data) ->
-    $p("#" + key).val(data)
+    switch key
+      when "back" then $p("#goHome").triggerHandler("goHome")
+      else $p("#" + key).val(data)
 
   bind: (event, handler) ->
     switch event
       when "showLocationCapturePage" then $p("#location").off("click").on 'click', handler
+      when "goHome" then $p("#goHome").off("goHome").on 'goHome', handler
       else $p("#" + event).off('click').on 'click', handler
 
   render: (message) ->

@@ -9,6 +9,9 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
     latitude: null
     longitude: null
 
+  goHome = () ->
+    changePage("menu")
+
   showDonationListing = () ->
     views.donationRequestListingPage.bind "refreshDonations", (location) ->
       fetchAndUpdateDonationListing(location)
@@ -64,6 +67,7 @@ bloodtorrent.donationRequest.controller = ({views, repositories, changePage}) ->
   bindCreateDonationView = () ->
     views.newDonationRequestPage.bind "submitDonationRequest", validateAndCreateDonationRequest
     views.newDonationRequestPage.bind "showLocationCapturePage", showLocationCapturePage
+    views.newDonationRequestPage.bind "goHome", goHome
 
   createNewRequest = (donationRequest) ->
     repositories.donationsRepository.createDonation({donationRequest, onDonationCreateSuccess, onDonationCreateFailure})
