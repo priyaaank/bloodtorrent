@@ -4,6 +4,12 @@ calatrava.pageView.newDonationRequest = ->
 
   $page = $('#newDonationRequest')
   $p = (sel)-> $(sel, $page)
+  $quantityValueIsInitialized = false
+
+  initializeQuantityDropdown = () ->
+    quantityDropdown = $p('#quantity')
+    quantityDropdown.append(new Option(quantityValue + " units", quantityValue)) for quantityValue in [1,2,3,5,8,10,15,20]
+    $quantityValueIsInitialized = true
 
   renderSection = (key, data) ->
     switch key
@@ -23,6 +29,7 @@ calatrava.pageView.newDonationRequest = ->
     $page.find("#" + field).val()
 
   show: ->
+    initializeQuantityDropdown() unless $quantityValueIsInitialized
     $page.show()
 
   hide: ->

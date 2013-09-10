@@ -17,16 +17,14 @@
             %option{ :value => "ab-"}AB Negative
             %option{ :value => "o-"}O Negative
 
-        %div.pure-group.margin-top
-          %input.pure-input-1#quantity{:type => "text", :name => "quantity", :placeholder => "Quantity"}
+        %div.pure-g.margin-top
+          %select.pure-input-1.select-box-large#quantity{:name => "quantity"}
+            %option{ :value => "choose"} Select Quantity
+          %div.pure-u-1-3.pure-button.pure-button-primary.pure-u-1-3#location
+            Select Location
 
         %div.pure-group.margin-top
           %textarea.pure-input-1#contactDetails.multiline_string{:name => "contact_details", :placeholder => "Contact Details"}
-
-        .field
-          %label.span150.vertical-top.field-label
-          .field_value.span150.text-center
-            %img#location.image-button{:src => "../images/place.png"}
 
         .action
           %div.pure-button-primary-center-custom#submitDonationRequest.pure-button.pure-button-primary.pure-button-large{:name => "submitDonationRequest"}
