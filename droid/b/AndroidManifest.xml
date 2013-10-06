@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".UserSetupActivity" android:label="UserSettings" android:noHistory="true"/>
-        <activity android:name=".MenuActivity" android:label="Menu" android:launchMode="singleTop" />
+        <activity android:name=".WebMenuActivity" android:label="Menu" android:launchMode="singleTop" />
         <activity android:name=".NewDonationRequestActivity" android:label="NewDonationRequest" />
         <activity android:name=".DonationRequestListingActivity" android:label="DonationRequestListing"  />
         <activity android:name=".CaptureLocationActivity" android:label="CaptureLocation" />
